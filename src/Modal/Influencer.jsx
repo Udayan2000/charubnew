@@ -3,35 +3,59 @@ import React, { useState } from 'react'
 const Influencer = ({ closeModal }) => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [country, setCountry] = useState(false);
   const handledefault = (event) => {
     event.stopPropagation()
   }
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+  const handleClicklist = () => {
+    setCountry(!country)
+  }
   return (
-    <div className='influencermodal' onClick={() => closeModal()}>
+    <div className='influencermodal' >
       <div className='influencer_content' onClick={(event) => handledefault(event)}>
 
         <div className='icnacnt'>
-          <i className="fa-solid fa-arrow-left-long"></i>
+          <div className='' onClick={() => closeModal()}>
+            <i className="fa-solid fa-arrow-left-long"></i>
+          </div>
           <p className='crttxtacnt'>create An Account</p>
         </div>
-        <div className=''>
+        <div className='crs' onClick={() => closeModal()}>
+          <i className="fa-solid fa-xmark"></i>
+        </div>
+        <div className='frmdtlsall'>
           <form >
             <div className='txtinpt'><input type="text" placeholder='Your Name' /></div>
             <div className='txtinpt'><input type="text" placeholder="Your Email" /></div>
             <div className='txtinptphn'>
               <input type="" placeholder=" Phone Number" />
-              <div className='numbflgarrow'>
-                <i className="fa-solid fa-flag"></i>
-              </div>
-              <div className='arrow'>
-                <i className="fa-solid fa-caret-down"></i>
+              <div className=''>
+                <div className='numbflgarrow'>
+                  <i className="fa-solid fa-flag"></i>
+                </div>
+                <div className='arrow' onClick={handleClicklist}>
+                  <span className='flg'>
+
+                  </span>
+                </div>
+                {country && <div className='listcntry'>
+                  <ul>
+                    <li className='cntrynmb'>
+                      <span className=''>
+
+                        +91
+                      </span>
+
+                    </li>
+                  </ul>
+                </div>}
               </div>
             </div>
             <div className='txtinpt'>
-            <input type={showPassword ? 'text' : 'password'}
+              <input type={showPassword ? 'text' : 'password'}
                 value={password}
                 placeholder='Password'
                 onChange={(e) => setPassword(e.target.value)} />
