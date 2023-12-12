@@ -29,7 +29,7 @@ const Influencer = ({ closeModal }) => {
         </div>
         <div className='frmdtlsall'>
           <form >
-            <div className='txtinpt'><input type="text" placeholder='Your Name' /></div>
+            <div className='txtinpt'><input type="text" placeholder='Your Full Name' /></div>
             <div className='txtinpt'><input type="text" placeholder="Your Email" /></div>
             <div className='txtinptphn'>
 

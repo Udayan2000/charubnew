@@ -33,7 +33,7 @@ const Creator = ({ closeModal }) => {
           <div className="">
             <form>
               <div className="crttxtinpt">
-                <input type="text" placeholder="Your Name" />
+                <input type="text" placeholder="Your Full Name" />
               </div>
               <div className="crttxtinpt">
                 <input type="text" placeholder="Your Email" />

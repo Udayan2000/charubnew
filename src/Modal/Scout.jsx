@@ -33,7 +33,7 @@ const Scout = ({ closeModal }) => {
           <div className="">
             <form>
               <div className="txtinpt">
-                <input type="text" placeholder="Your Name" />
+                <input type="text" placeholder="Your Full Name" />
               </div>
               <div className="txtinpt">
                 <input type="text" placeholder="Your Email" />
