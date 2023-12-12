@@ -197,6 +197,7 @@ ul {
   align-items: center;
   gap: 3%;
   padding: 15px 0px;
+  cursor: pointer;
 }
 
 .icnacnt i {
@@ -287,6 +288,7 @@ ul {
   position: absolute;
   top: 15px;
   left: 30px;
+  cursor: pointer;
 }
 
 .numbflgarrow i {
@@ -382,6 +384,7 @@ ul {
   top: 23px;
   right: 13px;
   z-index: 99;
+  cursor: pointer;
 }
 .crs i{
   font-size: 15px;
@@ -395,6 +398,8 @@ ul {
   padding: 10px 15px;
   top: 37px;
   left: 13px;
+  height: 254px;
+  overflow-y: auto;
 }
 .cntrynmb{
   color: #000;

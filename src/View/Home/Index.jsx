@@ -54,11 +54,11 @@ const Index = () => {
 
 
 
-                        <div className='bhmainimgall'>
+                        {modala||modalb||modalc?"":<div className='bhmainimgall'>
                             <div className='chrbgrpimg'>
                                 <img src={kj} alt="..." />
                             </div>
-                        </div>
+                        </div>}
                     </div>
 
                 </div>

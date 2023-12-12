@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Data from "../CountryJson/Data.json";
 
 const Influencer = ({ closeModal }) => {
   const [password, setPassword] = useState('');
@@ -31,25 +32,29 @@ const Influencer = ({ closeModal }) => {
             <div className='txtinpt'><input type="text" placeholder='Your Name' /></div>
             <div className='txtinpt'><input type="text" placeholder="Your Email" /></div>
             <div className='txtinptphn'>
+
               <input type="" placeholder=" Phone Number" />
               <div className=''>
                 <div className='numbflgarrow'>
                   <i className="fa-solid fa-flag"></i>
                 </div>
                 <div className='arrow' onClick={handleClicklist}>
-                  <span className='flg'>
-
-                  </span>
+                <i className="fa-solid fa-caret-down"></i>
                 </div>
                 {country && <div className='listcntry'>
                   <ul>
-                    <li className='cntrynmb'>
-                      <span className=''>
-
-                        +91
-                      </span>
-
-                    </li>
+                      <ul>
+                      {Data?.map((item, index) => {
+                        // console.log(item)
+                        return (
+                          <>
+                            <li className="cntrynmb">
+                            <span className="">{item.emoji}</span><span className="">{item?.phone?.[0]}</span>
+                            </li>
+                          </>
+                        );
+                      })}
+                    </ul>
                   </ul>
                 </div>}
               </div>
