@@ -41,11 +41,7 @@ async function requestData(url, data = {}, method = "GET") {
       console.log(response);
 
       if (
-        xhr.status === 200 ||
-        xhr.status === 400 ||
-        xhr.status === 403 ||
-        xhr.status === 500 ||
-        xhr.status === 406
+        xhr.status
       ) {
         resolve(response);
       } else {

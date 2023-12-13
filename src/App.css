@@ -179,7 +179,7 @@ ul {
 .influencer_content {
   position: absolute;
   z-index: 2;
-  top: 50%;
+  top: 63%;
   left: 78%;
   transform: translate(-50%, -50%);
   background-color: #fff;
@@ -205,7 +205,7 @@ ul {
 }
 
 .crttxtacnt {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
   color: #000;
@@ -326,6 +326,7 @@ ul {
   border-radius: 5px;
   color: #fff;
   margin: 15px 0px;
+  cursor: pointer;
 }
 
 .btnskl {

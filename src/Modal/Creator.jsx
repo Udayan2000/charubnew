@@ -1,31 +1,193 @@
-import React, { useState } from "react";
-import Data from "../CountryJson/Data.json";
+import React, { useEffect, useState } from "react";
+import HttpClientXml from "../utils/Utils/HttpClientXml";
+import AuthService from "../Service/AuthService";
+import toast from "react-hot-toast";
 
 const Creator = ({ closeModal }) => {
-  const [password, setPassword] = useState("");
+  const initialState = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    countryCode: "",
+    emoji: "",
+    phoneNumber: "",
+    password: "",
+    checkPassword: "",
+    countryId: "",
+  };
+
+  //Skills
+  const [skills, setSkills] = useState([]);
+  console.log(skills);
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [selectedSkillsName, setselectedSkillsName] = useState([]);
+
+  console.log(selectedSkills,"selectedskilssID", selectedSkillsName, "seletectedSKilss");
+
+  const [user, setUser] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const [country, setCountry] = useState(false);
-  const handledefault = (event) => {
-    event.stopPropagation();
-  };
+  const [error, setError] = useState();
+  const [checked, setChecked] = useState(false);
+  const [countryDetails, setCountryDetails] = useState([]);
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
   const handleClicklist = () => {
     setCountry(!country);
   };
+  //Checked
+  const handleCheck = () => {
+    setChecked(!checked);
+  };
+
+  useEffect(() => {
+    getAllCountryData();
+    getAllSkills();
+  }, []);
+  const getAllCountryData = async () => {
+    let res = await AuthService.GetAllCountry();
+    if (res && res?.status) {
+      setCountryDetails(res?.data);
+      const usa = res?.data?.find((item) => item?.name === "United States");
+      // console.log("idd", usa);
+      setUser({
+        ...user,
+        countryId: usa?._id,
+        countryCode: usa?.phone_code,
+        emoji: usa?.emoji,
+      });
+    } else {
+      console.log(res?.message);
+    }
+  };
+
+  const getAllSkills = async () => {
+    let res = await AuthService.GetAllSkills();
+    if (res && res?.status) {
+      setSkills(res?.data);
+    } else {
+      console.log(res?.message);
+    }
+  };
+  //selected Skilss
+  const userSkilss = (id, skillname) => {
+    // Add the skill ID to the array if it's not already present
+    if (selectedSkills.length<3) {
+      if (
+        !selectedSkills.includes(id) &&
+        !selectedSkillsName.includes(skillname)
+      ) {
+        setSelectedSkills([...selectedSkills, id]);
+        setselectedSkillsName([...selectedSkillsName, skillname]);
+      }
+      
+    }
+    else{
+      toast.error("U Can add only 3 skills")
+    }
+  
+   
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const validation = async() => {
+    let error = {};
+    if (user.firstname === "") {
+      error.fullName = "first name Name required";
+      await toast.error("first name required");
+    }
+    if (user.lastname === "") {
+      error.lastname = "lastname required";
+      await toast.error("lastname required");
+    }
+    if (user.email === "") {
+      error.email = "Email required";
+      await toast.error("email required");
+    }
+    if (user.countryCode === "") {
+      error.countryCode = "Country required";
+      await toast.error("code required");
+    }
+    if (user.phoneNumber === "") {
+      error.phoneNumber = "phoneNumber required";
+      await toast.error("phonenumber required");
+    }
+    if (user.password === "") {
+      error.password = "password required";
+      await toast.error("password");
+    }
+    if (user.password !== user.checkPassword) {
+      error.checkPassword = "password mismatched";
+      await toast.error("checkpassword");
+    }
+    if (selectedSkills.length===0) {
+      error.selectedSkills = "check box";
+      await toast.error("Select at least one skill");
+    }
+    if (!checked) {
+      error.checked = "check box";
+      await toast.error("tick the checkbox");
+    }
+   
+    return error;
+  };
+  const handleCountryCode = (code, countryEmoji, CountryId) => {
+    // console.log("valuefgrr",value)
+    setUser({
+      ...user,
+      countryCode: code,
+      emoji: countryEmoji,
+      countryId: CountryId,
+    });
+    setCountry(false);
+  };
+
+  const SignUp = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      firstName: user.firstname,
+      lastName: user.lastname,
+      email: user.email,
+      password: user.password,
+      phone: user.phoneNumber,
+      countryID: user.countryId,
+      userType: "buddingTalent",
+      skillID: selectedSkills,
+      // "skillID": ["63dcc310811c87e00cd3a676"]
+    };
+   
+
+    //  return console.log("DATAfgdgdfgdgdfd" , data);
+
+    const err = await validation();
+    setError(err);
+    if (Object.keys(err).length === 0) {
+      const res = await AuthService.Register(data);
+      if (res && res?.status) {
+        toast.success("Register Successfully");
+        setUser(initialState);
+        closeModal();
+      } else {
+        return toast.error(res?.message);
+      }
+      // console.log("ressDD", res);
+    }
+  };
+
   return (
     <>
       <div className="influencermodal">
-        <div
-          className="influencer_content"
-          onClick={(event) => handledefault(event)}
-        >
+        <div className="influencer_content">
           <div className="icnacnt">
             <div className="" onClick={() => closeModal()}>
               <i className="fa-solid fa-arrow-left-long"></i>
             </div>
-            <p className="crttxtacnt">create An Account</p>
+            <p className="crttxtacnt">Create An Account</p>
           </div>
           <div className="crs" onClick={() => closeModal()}>
             <i className="fa-solid fa-xmark"></i>
@@ -33,28 +195,74 @@ const Creator = ({ closeModal }) => {
           <div className="">
             <form>
               <div className="crttxtinpt">
-                <input type="text" placeholder="Your Full Name" />
+                <input
+                  type="text"
+                  name="firstname"
+                  value={user.firstname}
+                  placeholder="Your First Name"
+                  onChange={(e) => handleChange(e)}
+                />
               </div>
               <div className="crttxtinpt">
-                <input type="text" placeholder="Your Email" />
+                <input
+                  type="text"
+                  name="lastname"
+                  value={user.lastname}
+                  placeholder="Your Last Name"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="crttxtinpt">
+                <input
+                  type="text"
+                  name="email"
+                  value={user.email}
+                  placeholder="Your Email"
+                  onChange={(e) => handleChange(e)}
+                />
               </div>
               <div className="txtinptphn">
-                <input type="" placeholder=" Phone Number" />
-                <div className="numbflgarrow">
-                  <i className="fa-solid fa-flag"></i>
-                </div>
-                <div className="arrow" onClick={handleClicklist}>
-                  <i className="fa-solid fa-caret-down"></i>
+                <input
+                  type="number"
+                  name="phoneNumber"
+                  value={user.phoneNumber}
+                  placeholder=" Phone Number"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className="flgarwflx">
+                  <div className="numbflgarrow">
+                    {user.countryCode ? (
+                      user.emoji + "+" + user.countryCode
+                    ) : (
+                      <i className="fa-solid fa-flag"></i>
+                    )}
+                  </div>
+                  <div className="arrow" onClick={handleClicklist}>
+                    <i className="fa-solid fa-caret-down"></i>
+                  </div>
                 </div>
                 {country && (
                   <div className="listcntry">
                     <ul>
-                      {Data?.map((item, index) => {
+                      {countryDetails?.map((item, index) => {
                         // console.log(item)
                         return (
                           <>
                             <li className="cntrynmb">
-                            <span className="">{item.emoji}</span><span className="">{item?.phone?.[0]}</span>
+                              <span className="">{item.emoji}</span>
+                              <span
+                                className=""
+                                key={index}
+                                onClick={() =>
+                                  handleCountryCode(
+                                    item?.phone_code,
+                                    item?.emoji,
+                                    item?._id
+                                  )
+                                }
+                              >
+                                {item?.name}
+                              </span>
                             </li>
                           </>
                         );
@@ -66,9 +274,10 @@ const Creator = ({ closeModal }) => {
               <div className="crttxtinpt">
                 <input
                   type={showPassword ? "text" : "password"}
-                  value={password}
+                  name="password"
                   placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={user.password}
+                  onChange={(e) => handleChange(e)}
                 />
                 <div className="shwinpt" onClick={handleTogglePassword}>
                   {showPassword ? (
@@ -81,9 +290,10 @@ const Creator = ({ closeModal }) => {
               <div className="crttxtinpt">
                 <input
                   type={showPassword ? "text" : "password"}
-                  value={password}
                   placeholder="ShowPassword"
-                  onChange={(e) => setPassword(e.target.value)}
+                  name="checkPassword"
+                  value={user.checkPassword}
+                  onChange={handleChange}
                 />
                 <div className="shwinpt" onClick={handleTogglePassword}>
                   {showPassword ? (
@@ -100,29 +310,49 @@ const Creator = ({ closeModal }) => {
               <div className="sklmax">
                 <p className="skltxt">Maximum 3 skills</p>
                 <div className="sprtdnccmd">
-                  <div className="btnskl">Sport</div>
-                  <div className="btnskl">Dance</div>
-                  <div className="btnskl">Drama</div>
-                  <div className="btnskl">Music</div>
-                  <div className="btnskl">Fashion</div>
-                  <div className="btnskl">Others</div>
+                  {skills?.map((item, index) => {
+                    return (
+                      <>
+                        <div
+                          className="btnskl"
+                          key={index}
+                          onClick={() => {
+                            console.log(item, "userskills");
+                            userSkilss(item?._id, item?.skillName);
+                          }}
+                        >
+                          {item?.skillName}
+                        </div>
+                      </>
+                    );
+                  })}
                 </div>
               </div>
 
               <div className="addskl">
-                <p className="skltxt">Add Skil</p>
+                <p className="skltxt">View Skil</p>
                 <div className="sdmotohrflx">
-                  <div className="btnskl">Sport</div>
-                  <div className="btnskl">Dance</div>
-                  <div className="btnskl">Comedy</div>
+                  {selectedSkillsName?.map((item, index) => {
+                    return (
+                      <>
+                        <div className="btnskl">{item}</div>
+                      </>
+                    );
+                  })}
                 </div>
               </div>
 
               <div className="chcktrm">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  checked={checked ? true : false}
+                  onClick={handleCheck}
+                />
                 <p className="trms">Terms & Condition</p>
               </div>
-              <div className="sgnbtn">Sign Up</div>
+              <div className="sgnbtn" onClick={SignUp}>
+                Sign Up
+              </div>
             </form>
           </div>
         </div>
