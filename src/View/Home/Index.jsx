@@ -8,15 +8,16 @@ import Creator from '../../Modal/Creator';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import dance from "../../Images/dance.jpg";
-import basketball from "../../Images/basketball.jpg";
-import boy from "../../Images/boy.jpg";
-import read from "../../Images/read.jpg";
-import femalephone from "../../Images/femalephone.png"
+import dance from "../../Images/dance.png";
+import basketball from "../../Images/basketball.png";
+import bg2 from "../../Images/bg2.png";
+import read from "../../Images/read.png";
+import femalephone from "../../Images/femalephone.png";
+import musicc from "../../Images/musicc.png"
 const Index = () => {
     var settings = {
         // dots: true,
-        arrows:false,
+        arrows: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -70,18 +71,21 @@ const Index = () => {
             }
         ]
     };
-    const slideimg =[
+    const slideimg = [
         {
-             img:dance,
+            img: dance,
         },
         {
-            img:basketball,
+            img: basketball,
         },
         {
-            img:boy,
+            img: bg2,
         },
         {
-            img:read,
+            img: read,
+        },
+        {
+            img:musicc
         }
     ]
 
@@ -111,9 +115,9 @@ const Index = () => {
                                     {slideimg.map((item, index) => {
                                         return (
                                             <div>
-                                               <div className='sldallimg' key={index}>
-                                                 <img src={item.img} alt="..." />
-                                               </div>
+                                                <div className='sldallimg' key={index}>
+                                                    <img src={item.img} alt="..." />
+                                                </div>
                                             </div>
                                         )
                                     })}
@@ -121,13 +125,9 @@ const Index = () => {
                             </div>
                         </div>
                         <div className='col-xl-5 col-lg-5 col-md-6  col-12'>
-                            <div className=''>
+                            <div className='lgtxtallph'>
                                 <div className='chrb'>
                                     <img className="" src={charublogo} alt="..." />
-                                </div>
-                                <div className='tlntcrtapp'>
-                                    <p className='crttxt'>The Talent & Creators with Scout</p>
-                                    <p className='spttxt'>Super APP</p>
                                 </div>
                                 <div className=''>
                                     <p className='alltxtspr'>The All-In-One Creators & Talent SUPERAPP !</p>
@@ -138,26 +138,28 @@ const Index = () => {
                                     </p>
                                 </div>
                                 <div className='btnmainbx'>
-                                    <div className='btbbx' onClick={handlemodalreg}>
-                                        Register as an Influencer
-                                    </div>
-                                    <div className='btbbx' onClick={handlemodalcre}>
-                                        Register as a Creator
-                                    </div>
-                                    <div className='btbbx' onClick={handlemodaltale}>
-                                        Register as a Growth Mentor  or Talent Scout
-                                    </div>
-                                </div>
+                        <div className='btbbx' onClick={handlemodalreg}>
+                            Register as an Influencer
+                        </div>
+                        <div className='btbbx' onClick={handlemodalcre}>
+                            Register as a Creator
+                        </div>
+                        <div className='btbbx' onClick={handlemodaltale}>
+                            Register as a Growth Mentor  or Talent Scout
+                        </div>
+                    </div>
+
                             </div>
                         </div>
                         <div className='col-xl-3 col-lg-3 col-md-6  col-12'>
-                           <div className=''>
-                            <div className='phndiv'>
-                                <img src={femalephone} alt="..." />
+                            <div className=''>
+                                <div className='phndiv'>
+                                    <img src={femalephone} alt="..." />
+                                </div>
                             </div>
-                           </div>
                         </div>
                     </div>
+                 
                 </div>
             </section>
             {/* <section className='charubsuper'>
@@ -197,7 +199,7 @@ const Index = () => {
 
                 </div>
             </section> */}
-           
+
 
             {modala && <Influencer closeModal={setModala} />}
             {modalb && <Scout closeModal={setModalb} />}

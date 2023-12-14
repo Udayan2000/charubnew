@@ -16,12 +16,14 @@ ul {
   max-width: 90%;
   margin: 0 auto;
 }
-
+body{
+  /* background: linear-gradient(to right, rgba(54,161,251,0.9108018207282913) 6%, rgb(165 171 253 / 83%) 46%, rgba(188,109,251,1) 100%); */
+  background: linear-gradient(90deg, rgba(155,172,252,1) 6%, rgba(178,159,251,1) 26%, rgba(196,139,252,1) 46%, rgba(190,106,253,1) 100%);
+  /* background: linear-gradient(to right, #B78AF8, #3aa7d9); */
+}
 .home_banner {
   width: 100%;
   height: auto;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(190, 106, 253, 1) 0%, rgba(181, 155, 252, 1) 100%);
   padding: 40px 0px;
 }
 
@@ -45,6 +47,12 @@ ul {
   text-align: left;
   line-height: 35px;
 }
+/* .lgtxtallph{
+  width: 100%;
+  max-width: 76%;
+  margin: auto;
+} */
+
 
 .spttxt {
   font-family: 'Roboto', sans-serif;
@@ -59,8 +67,8 @@ ul {
 .alltxtspr {
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 26px;
+  line-height: 35px;
   color: #fff;
   padding: 10px 0px;
 }
@@ -68,8 +76,8 @@ ul {
 .alltxtsprthn {
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 21px;
+  line-height: 28px;
   color: #fff;
   padding: 10px 0px;
 }
@@ -77,8 +85,8 @@ ul {
 .alltxtsprbld {
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 26px;
+  line-height: 35px;
   color: #fff;
   padding: 10px 0px;
 }
@@ -86,23 +94,25 @@ ul {
 
 .btnmainbx {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 15px;
+    flex-direction: column;
 }
 
 .btbbx {
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   padding: 8px;
-  margin: 10px 10px;
+  margin: 8px 5px;
   transition: all 0.4s ease-in-out;
   z-index: 1;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  background-color: #4f81bd;
+  background-color: #bc6efb;
   text-align: center;
   border-radius: 10px;
 }
@@ -132,7 +142,7 @@ ul {
 
 .btbbx:hover {
   text-decoration: none;
-  color: #4f81bd;
+  color: #bc6efb;
   background-color: #ffffff;
   border: 2px solid #fff;
 }
@@ -231,14 +241,17 @@ ul {
 .txtinpt input {
   width: 100%;
   background-color: transparent;
-  padding: 10px 30px 10px 20px;
+  padding: 5px 30px 5px 20px;
   box-shadow: 0px 0px 5px 0px #ccc;
   /* border: 1px solid #000; */
   margin: 5px 0px 15px 0px;
   border: 0px;
-  font-size: 14px;
+  font-size: 12px;
   color: #000;
   font-weight: 600;
+}
+.txtinptphninfln input:focus{
+  outline: 0;
 }
 
 .crttxtinpt input {
@@ -410,7 +423,7 @@ ul {
 
 .icnshw {
   position: absolute;
-  top: 11px;
+  top: 7px;
   right: 11px;
   z-index: 6;
 }
@@ -422,7 +435,7 @@ ul {
 
 .crs {
   position: absolute;
-  top: 14px;
+  top: 46px;
   right: 11px;
   z-index: 99;
   cursor: pointer;
@@ -491,7 +504,7 @@ ul {
 }
 /* The device with borders */
 .smartphone {
-  position: relative;
+  /* position: relative;
   width: 294px;
   height: 569px;
   margin: 16px auto;
@@ -500,43 +513,55 @@ ul {
   border-bottom-width: 60px;
   border-radius: 15px;
   left: 35%;
-  top: 3%;
+  top: 3%; */
+  border-color: #000;
+  /* background-color: #ffffff; */
+  width: 293px;
+  height: 558px;
+  border-radius: 30px;
+  border: 2px solid #ddd;
+  margin: auto;
+  padding: 23px 7px;
+  position: relative;
+  left: 29%;
+  top: 6%;
+}
+.scrlwrp{
+  height: 439px;
+  overflow-y: auto;
+}
+.scrlwrp::-webkit-scrollbar {
+  display: none;
 }
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrlwrp {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 /* The horizontal line on the top of the device */
 .smartphone:before {
   content: '';
   display: block;
-  width: 60px;
-  height: 5px;
+  width: 66px;
+  height: 19px;
   position: absolute;
-  top: -30px;
+  top: 25px;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #333;
+  background: #000;
   border-radius: 10px;
+  z-index: 99;
 }
 
-/* The circle on the bottom of the device */
-.smartphone:after {
-  content: '';
-  display: block;
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  left: 50%;
-  bottom: -65px;
-  transform: translate(-50%, -50%);
-  background: #333;
-  border-radius: 50%;
-}
-
-/* The screen (or content) of the device */
 .smartphone .influencer_content {
-  width: 280px;
-  height: 472px;
+  width: 284px;
+  height: 549px;
   background: white;
   overflow: auto;
+  border-radius: 29px;
+  padding: 40px 10px;
+  border: 7px solid #000;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .smartphone .influencer_content::-webkit-scrollbar {
@@ -586,6 +611,10 @@ ul {
     width: 100%;
     height: auto;
   }
+  .smartphone {
+    left: 0%;
+    top: 7%;
+}
 }
 
 @media(max-width:767px) {

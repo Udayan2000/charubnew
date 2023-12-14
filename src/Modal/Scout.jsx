@@ -149,6 +149,7 @@ const Scout = ({ closeModal }) => {
     <>
       <div className="influencermodal">
         <div className="smartphone">
+          <div className="scrlsmrt">
           <div
             className="influencer_content"
             onClick={(event) => handledefault(event)}
@@ -162,7 +163,7 @@ const Scout = ({ closeModal }) => {
             <div className="crs" onClick={() => closeModal()}>
               <i className="fa-solid fa-xmark"></i>
             </div>
-            <div className="">
+            <div className="scrlwrp">
               {/* <form> */}
               {/*full name*/}
               <div className="txtinpt">
@@ -295,6 +296,7 @@ const Scout = ({ closeModal }) => {
               </div>
               {/* </form> */}
             </div>
+          </div>
           </div>
         </div>
       </div>
