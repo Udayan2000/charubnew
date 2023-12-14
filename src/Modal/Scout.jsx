@@ -148,151 +148,153 @@ const Scout = ({ closeModal }) => {
   return (
     <>
       <div className="influencermodal">
-        <div
-          className="influencer_content"
-          onClick={(event) => handledefault(event)}
-        >
-          <div className="icnacnt">
-            <div className="" onClick={() => closeModal()}>
-              <i className="fa-solid fa-arrow-left-long"></i>
+        <div className="smartphone">
+          <div
+            className="influencer_content"
+            onClick={(event) => handledefault(event)}
+          >
+            <div className="icnacnt">
+              <div className="" onClick={() => closeModal()}>
+                <i className="fa-solid fa-arrow-left-long"></i>
+              </div>
+              <p className="crttxtacnt">reate An Account</p>
             </div>
-            <p className="crttxtacnt">reate An Account</p>
-          </div>
-          <div className="crs" onClick={() => closeModal()}>
-            <i className="fa-solid fa-xmark"></i>
-          </div>
-          <div className="">
-            {/* <form> */}
-            {/*full name*/}
-            <div className="txtinpt">
-              <input
-                type="text"
-                name="firstname"
-                value={user.firstname}
-                placeholder="Your First Name"
-                onChange={(e) => handleChange(e)}
-              />
+            <div className="crs" onClick={() => closeModal()}>
+              <i className="fa-solid fa-xmark"></i>
             </div>
-            {/*last name*/}
-            <div className="txtinpt">
-              <input
-                type="text"
-                name="lastname"
-                value={user.lastname}
-                placeholder="Your Last Name"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            {/*Email*/}
-            <div className="txtinpt">
-              <input
-                type="text"
-                name="email"
-                value={user.email}
-                placeholder="Your Email"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className="txtinptphn">
-              {/*phone number* type no defined yet */}
-              <input
-                type="number"
-                name="phoneNumber"
-                value={user.phoneNumber}
-                placeholder=" Phone Number"
-                onChange={(e) => handleChange(e)}
-              />
-              <div className="flgarwflx">
-                <div className="numbflgarrow">
-                  {user.countryCode ? (
-                    user.emoji + "+" + user.countryCode
+            <div className="">
+              {/* <form> */}
+              {/*full name*/}
+              <div className="txtinpt">
+                <input
+                  type="text"
+                  name="firstname"
+                  value={user.firstname}
+                  placeholder="Your First Name"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              {/*last name*/}
+              <div className="txtinpt">
+                <input
+                  type="text"
+                  name="lastname"
+                  value={user.lastname}
+                  placeholder="Your Last Name"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              {/*Email*/}
+              <div className="txtinpt">
+                <input
+                  type="text"
+                  name="email"
+                  value={user.email}
+                  placeholder="Your Email"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="txtinptphn">
+                {/*phone number* type no defined yet */}
+                <input
+                  type="number"
+                  name="phoneNumber"
+                  value={user.phoneNumber}
+                  placeholder=" Phone Number"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className="flgarwflx">
+                  <div className="numbflgarrow">
+                    {user.countryCode ? (
+                      user.emoji + "+" + user.countryCode
+                    ) : (
+                      <i className="fa-solid fa-flag"></i>
+                    )}
+                  </div>
+                  <div className="arrow" onClick={handleClicklist}>
+                    <i className="fa-solid fa-caret-down"></i>
+                  </div>
+                </div>
+
+                {country && (
+                  <div className="listcntry">
+                    <ul>
+                      <ul>
+                        {/*country code*/}
+                        {countryDetails?.map((item, index) => {
+                          // console.log(item)
+                          return (
+                            <>
+                              <li className="cntrynmb">
+                                <span className="">{item.emoji}</span>
+                                <span
+                                  className=""
+                                  key={index}
+                                  onClick={() =>
+                                    handleCountryCode(
+                                      item?.phone_code,
+                                      item?.emoji,
+                                      item?._id
+                                    )
+                                  }
+                                >
+                                  {item?.name}
+                                </span>
+                              </li>
+                            </>
+                          );
+                        })}
+                      </ul>
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div className="txtinpt">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  value={user.password}
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className="icnshw" onClick={handleTogglePassword}>
+                  {showPassword ? (
+                    <i className="fa-solid fa-eye-slash"></i>
                   ) : (
-                    <i className="fa-solid fa-flag"></i>
+                    <i className="fa-regular fa-eye"></i>
                   )}
                 </div>
-                <div className="arrow" onClick={handleClicklist}>
-                  <i className="fa-solid fa-caret-down"></i>
+              </div>
+              <div className="txtinpt">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="ShowPassword"
+                  name="checkPassword"
+                  value={user.checkPassword}
+                  onChange={handleChange}
+                />
+                <div className="icnshw" onClick={handleTogglePassword}>
+                  {showPassword ? (
+                    <i className="fa-solid fa-eye-slash"></i>
+                  ) : (
+                    <i className="fa-regular fa-eye"></i>
+                  )}
                 </div>
               </div>
-
-              {country && (
-                <div className="listcntry">
-                  <ul>
-                    <ul>
-                      {/*country code*/}
-                      {countryDetails?.map((item, index) => {
-                        // console.log(item)
-                        return (
-                          <>
-                            <li className="cntrynmb">
-                              <span className="">{item.emoji}</span>
-                              <span
-                                className=""
-                                key={index}
-                                onClick={() =>
-                                  handleCountryCode(
-                                    item?.phone_code,
-                                    item?.emoji,
-                                    item?._id
-                                  )
-                                }
-                              >
-                                {item?.name}
-                              </span>
-                            </li>
-                          </>
-                        );
-                      })}
-                    </ul>
-                  </ul>
-                </div>
-              )}
-            </div>
-            <div className="txtinpt">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="Password"
-                value={user.password}
-                onChange={(e) => handleChange(e)}
-              />
-              <div className="icnshw" onClick={handleTogglePassword}>
-                {showPassword ? (
-                  <i className="fa-solid fa-eye-slash"></i>
-                ) : (
-                  <i className="fa-regular fa-eye"></i>
-                )}
+              <div className="chcktrm">
+                {/*Check box*/}
+                <input
+                  type="checkbox"
+                  checked={checked ? true : false}
+                  onClick={handleCheck}
+                />
+                <p className="trms">Terms & Condition</p>
               </div>
-            </div>
-            <div className="txtinpt">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="ShowPassword"
-                name="checkPassword"
-                value={user.checkPassword}
-                onChange={handleChange}
-              />
-              <div className="icnshw" onClick={handleTogglePassword}>
-                {showPassword ? (
-                  <i className="fa-solid fa-eye-slash"></i>
-                ) : (
-                  <i className="fa-regular fa-eye"></i>
-                )}
+              <div className="sgnbtn" onClick={SignUp}>
+                Sign Up
               </div>
+              {/* </form> */}
             </div>
-            <div className="chcktrm">
-              {/*Check box*/}
-              <input
-                type="checkbox"
-                checked={checked ? true : false}
-                onClick={handleCheck}
-              />
-              <p className="trms">Terms & Condition</p>
-            </div>
-            <div className="sgnbtn" onClick={SignUp}>
-              Sign Up
-            </div>
-            {/* </form> */}
           </div>
         </div>
       </div>

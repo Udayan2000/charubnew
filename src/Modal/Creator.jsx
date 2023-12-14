@@ -19,10 +19,16 @@ const Creator = ({ closeModal }) => {
   //Skills
   const [skills, setSkills] = useState([]);
   console.log(skills);
+  //Skill ID
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedSkillsName, setselectedSkillsName] = useState([]);
-
-  console.log(selectedSkills,"selectedskilssID", selectedSkillsName, "seletectedSKilss");
+  //
+  console.log(
+    selectedSkills,
+    "selectedskilssID",
+    selectedSkillsName,
+    "seletectedSKilss"
+  );
 
   const [user, setUser] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
@@ -73,66 +79,68 @@ const Creator = ({ closeModal }) => {
   //selected Skilss
   const userSkilss = (id, skillname) => {
     // Add the skill ID to the array if it's not already present
-    if (selectedSkills.length<3) {
+    if (selectedSkills.length < 3) {
       if (
         !selectedSkills.includes(id) &&
         !selectedSkillsName.includes(skillname)
       ) {
         setSelectedSkills([...selectedSkills, id]);
-        setselectedSkillsName([...selectedSkillsName, skillname]);
+        setselectedSkillsName([...selectedSkillsName, {name:skillname,id:id}]);
       }
-      
+    } else {
+      toast.error("U Can add only 3 skills");
     }
-    else{
-      toast.error("U Can add only 3 skills")
-    }
-  
-   
   };
+  //DeleteSkilss
+  const DeleteSkilss = (name,id) => {
+    setSelectedSkills(selectedSkills.filter((x) => x !== id));
+    setselectedSkillsName(selectedSkillsName.filter((x)=>x.name!== name));
+  };
+  //taking values from input
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
-  const validation = async() => {
+  const validation = async () => {
     let error = {};
     if (user.firstname === "") {
       error.fullName = "first name Name required";
-      await toast.error("first name required");
+      return await toast.error("first name required");
     }
     if (user.lastname === "") {
       error.lastname = "lastname required";
-      await toast.error("lastname required");
+      return await toast.error("lastname required");
     }
     if (user.email === "") {
       error.email = "Email required";
-      await toast.error("email required");
+      return await toast.error("email required");
     }
     if (user.countryCode === "") {
       error.countryCode = "Country required";
-      await toast.error("code required");
+      return await toast.error("code required");
     }
     if (user.phoneNumber === "") {
       error.phoneNumber = "phoneNumber required";
-      await toast.error("phonenumber required");
+      return await toast.error("phonenumber required");
     }
     if (user.password === "") {
       error.password = "password required";
-      await toast.error("password");
+      return await toast.error("password");
     }
     if (user.password !== user.checkPassword) {
       error.checkPassword = "password mismatched";
-      await toast.error("checkpassword");
+      return await toast.error("checkpassword");
     }
-    if (selectedSkills.length===0) {
+    if (selectedSkills.length === 0) {
       error.selectedSkills = "check box";
-      await toast.error("Select at least one skill");
+      return await toast.error("Select at least one skill");
     }
     if (!checked) {
       error.checked = "check box";
-      await toast.error("tick the checkbox");
+      return await toast.error("tick the checkbox");
     }
-   
+
     return error;
   };
   const handleCountryCode = (code, countryEmoji, CountryId) => {
@@ -160,7 +168,6 @@ const Creator = ({ closeModal }) => {
       skillID: selectedSkills,
       // "skillID": ["63dcc310811c87e00cd3a676"]
     };
-   
 
     //  return console.log("DATAfgdgdfgdgdfd" , data);
 
@@ -182,178 +189,192 @@ const Creator = ({ closeModal }) => {
   return (
     <>
       <div className="influencermodal">
-        <div className="influencer_content">
-          <div className="icnacnt">
-            <div className="" onClick={() => closeModal()}>
-              <i className="fa-solid fa-arrow-left-long"></i>
+        <div className="smartphone">
+          <div className="influencer_content">
+            <div className="icnacnt">
+              <div className="" onClick={() => closeModal()}>
+                <i className="fa-solid fa-arrow-left-long"></i>
+              </div>
+              <p className="crttxtacnt">Create An Account</p>
             </div>
-            <p className="crttxtacnt">Create An Account</p>
-          </div>
-          <div className="crs" onClick={() => closeModal()}>
-            <i className="fa-solid fa-xmark"></i>
-          </div>
-          <div className="">
-            <form>
-              <div className="crttxtinpt">
-                <input
-                  type="text"
-                  name="firstname"
-                  value={user.firstname}
-                  placeholder="Your First Name"
-                  onChange={(e) => handleChange(e)}
-                />
-              </div>
-              <div className="crttxtinpt">
-                <input
-                  type="text"
-                  name="lastname"
-                  value={user.lastname}
-                  placeholder="Your Last Name"
-                  onChange={(e) => handleChange(e)}
-                />
-              </div>
-              <div className="crttxtinpt">
-                <input
-                  type="text"
-                  name="email"
-                  value={user.email}
-                  placeholder="Your Email"
-                  onChange={(e) => handleChange(e)}
-                />
-              </div>
-              <div className="txtinptphn">
-                <input
-                  type="number"
-                  name="phoneNumber"
-                  value={user.phoneNumber}
-                  placeholder=" Phone Number"
-                  onChange={(e) => handleChange(e)}
-                />
-                <div className="flgarwflx">
-                  <div className="numbflgarrow">
-                    {user.countryCode ? (
-                      user.emoji + "+" + user.countryCode
+            <div className="crs" onClick={() => closeModal()}>
+              <i className="fa-solid fa-xmark"></i>
+            </div>
+            <div className="">
+              <form>
+                <div className="crttxtinpt">
+                  <input
+                    type="text"
+                    name="firstname"
+                    value={user.firstname}
+                    placeholder="Your First Name"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="crttxtinpt">
+                  <input
+                    type="text"
+                    name="lastname"
+                    value={user.lastname}
+                    placeholder="Your Last Name"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="crttxtinpt">
+                  <input
+                    type="text"
+                    name="email"
+                    value={user.email}
+                    placeholder="Your Email"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="txtinptphn">
+                  <input
+                    type="number"
+                    name="phoneNumber"
+                    value={user.phoneNumber}
+                    placeholder=" Phone Number"
+                    onChange={(e) => handleChange(e)}
+                  />
+                  <div className="flgarwflx">
+                    <div className="numbflgarrow">
+                      {user.countryCode ? (
+                        user.emoji + "+" + user.countryCode
+                      ) : (
+                        <i className="fa-solid fa-flag"></i>
+                      )}
+                    </div>
+                    <div className="arrow" onClick={handleClicklist}>
+                      <i className="fa-solid fa-caret-down"></i>
+                    </div>
+                  </div>
+                  {country && (
+                    <div className="listcntry">
+                      <ul>
+                        {countryDetails?.map((item, index) => {
+                          // console.log(item)
+                          return (
+                            <>
+                              <li className="cntrynmb">
+                                <span className="">{item.emoji}</span>
+                                <span
+                                  className=""
+                                  key={index}
+                                  onClick={() =>
+                                    handleCountryCode(
+                                      item?.phone_code,
+                                      item?.emoji,
+                                      item?._id
+                                    )
+                                  }
+                                >
+                                  {item?.name}
+                                </span>
+                              </li>
+                            </>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+                <div className="crttxtinpt">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    value={user.password}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  <div className="shwinpt" onClick={handleTogglePassword}>
+                    {showPassword ? (
+                      <i className="fa-solid fa-eye-slash"></i>
                     ) : (
-                      <i className="fa-solid fa-flag"></i>
+                      <i className="fa-regular fa-eye"></i>
                     )}
                   </div>
-                  <div className="arrow" onClick={handleClicklist}>
-                    <i className="fa-solid fa-caret-down"></i>
+                </div>
+                <div className="crttxtinpt">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="ShowPassword"
+                    name="checkPassword"
+                    value={user.checkPassword}
+                    onChange={handleChange}
+                  />
+                  <div className="shwinpt" onClick={handleTogglePassword}>
+                    {showPassword ? (
+                      <i className="fa-solid fa-eye-slash"></i>
+                    ) : (
+                      <i className="fa-regular fa-eye"></i>
+                    )}
                   </div>
                 </div>
-                {country && (
-                  <div className="listcntry">
-                    <ul>
-                      {countryDetails?.map((item, index) => {
-                        // console.log(item)
-                        return (
-                          <>
-                            <li className="cntrynmb">
-                              <span className="">{item.emoji}</span>
-                              <span
-                                className=""
-                                key={index}
-                                onClick={() =>
-                                  handleCountryCode(
-                                    item?.phone_code,
-                                    item?.emoji,
-                                    item?._id
-                                  )
-                                }
-                              >
-                                {item?.name}
-                              </span>
-                            </li>
-                          </>
-                        );
-                      })}
-                    </ul>
+                <div className="sklinct">
+                  <i className="fa-solid fa-arrow-left-long"></i>
+                  <p className="crttxtacnt">Add Your Skill</p>
+                </div>
+                <div className="sklmax">
+                  <p className="skltxt">Maximum 3 skills</p>
+                  <div className="sprtdnccmd">
+                    {skills?.map((item, index) => {
+                      return (
+                        <>
+                          <div
+                            className="btnskl"
+                            key={index}
+                            onClick={() => {
+                              console.log(item, "userskills");
+                              userSkilss(item?._id, item?.skillName);
+                             
+                            }}
+                          >
+                            {item?.skillName}
+                          </div>
+                        </>
+                      );
+                    })}
                   </div>
-                )}
-              </div>
-              <div className="crttxtinpt">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
-                  value={user.password}
-                  onChange={(e) => handleChange(e)}
-                />
-                <div className="shwinpt" onClick={handleTogglePassword}>
-                  {showPassword ? (
-                    <i className="fa-solid fa-eye-slash"></i>
-                  ) : (
-                    <i className="fa-regular fa-eye"></i>
-                  )}
                 </div>
-              </div>
-              <div className="crttxtinpt">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="ShowPassword"
-                  name="checkPassword"
-                  value={user.checkPassword}
-                  onChange={handleChange}
-                />
-                <div className="shwinpt" onClick={handleTogglePassword}>
-                  {showPassword ? (
-                    <i className="fa-solid fa-eye-slash"></i>
-                  ) : (
-                    <i className="fa-regular fa-eye"></i>
-                  )}
-                </div>
-              </div>
-              <div className="sklinct">
-                <i className="fa-solid fa-arrow-left-long"></i>
-                <p className="crttxtacnt">Add Your Skill</p>
-              </div>
-              <div className="sklmax">
-                <p className="skltxt">Maximum 3 skills</p>
-                <div className="sprtdnccmd">
-                  {skills?.map((item, index) => {
-                    return (
-                      <>
-                        <div
-                          className="btnskl"
-                          key={index}
-                          onClick={() => {
-                            console.log(item, "userskills");
-                            userSkilss(item?._id, item?.skillName);
-                          }}
-                        >
-                          {item?.skillName}
-                        </div>
-                      </>
-                    );
-                  })}
-                </div>
-              </div>
 
-              <div className="addskl">
-                <p className="skltxt">View Skil</p>
-                <div className="sdmotohrflx">
-                  {selectedSkillsName?.map((item, index) => {
-                    return (
-                      <>
-                        <div className="btnskl">{item}</div>
-                      </>
-                    );
-                  })}
+                <div className="addskl">
+                  <p className="skltxt">View Skil</p>
+                  <div className="sdmotohrflx">
+                    {selectedSkillsName?.map((item, index) => {
+                      return (
+                        <>
+                          <div className="btnsklitm">
+                            {item?.name}
+                            <div className="crsicn">
+                              <i
+                                className="fa-solid fa-xmark"
+                                onClick={() => {
+                                  console.log(item, "selectedSkilss");
+                                  DeleteSkilss(item?.name,item?.id);
+                                }}
+                              ></i>
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
 
-              <div className="chcktrm">
-                <input
-                  type="checkbox"
-                  checked={checked ? true : false}
-                  onClick={handleCheck}
-                />
-                <p className="trms">Terms & Condition</p>
-              </div>
-              <div className="sgnbtn" onClick={SignUp}>
-                Sign Up
-              </div>
-            </form>
+                <div className="chcktrm">
+                  <input
+                    type="checkbox"
+                    checked={checked ? true : false}
+                    onClick={handleCheck}
+                  />
+                  <p className="trms">Terms & Condition</p>
+                </div>
+                <div className="sgnbtn" onClick={SignUp}>
+                  Sign Up
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
