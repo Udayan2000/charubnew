@@ -9,11 +9,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import dance from "../../Images/dance.png";
-import basketball from "../../Images/basketball.png";
+import play from "../../Images/play.png";
 import bg2 from "../../Images/bg2.png";
 import read from "../../Images/read.png";
-import femalephone from "../../Images/femalephone.png";
-import musicc from "../../Images/musicc.png"
+import charubph from "../../Images/charubph.png";
+import charubfemale from "../../Images/charubfemale.png"
 const Index = () => {
     var settings = {
         // dots: true,
@@ -25,10 +25,11 @@ const Index = () => {
         initialSlide: 1,
         fade: true,
         autoplay: true,
-        speed: 3000,
+        speed: 4000,
+        focusOnSelect: false,
         cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
         touchThreshold: 100,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 1000,
         responsive: [
             {
                 breakpoint: 1024,
@@ -73,20 +74,19 @@ const Index = () => {
     };
     const slideimg = [
         {
-            img: dance,
+            img: charubfemale,
         },
         {
-            img: basketball,
+            img: dance
+
         },
         {
-            img: bg2,
+            img: play,
         },
         {
             img: read,
         },
-        {
-            img:musicc
-        }
+
     ]
 
     const [modala, setModala] = useState(false);
@@ -138,28 +138,30 @@ const Index = () => {
                                     </p>
                                 </div>
                                 <div className='btnmainbx'>
-                        <div className='btbbx' onClick={handlemodalreg}>
-                            Register as an Influencer
-                        </div>
-                        <div className='btbbx' onClick={handlemodalcre}>
-                            Register as a Creator
-                        </div>
-                        <div className='btbbx' onClick={handlemodaltale}>
-                            Register as a Growth Mentor  or Talent Scout
-                        </div>
-                    </div>
+                                    <div className='btnallbox'>
+                                        <div className='btbbx' onClick={handlemodalcre}>
+                                            Register as a Creator
+                                        </div>
+                                        <div className='btbbx' onClick={handlemodalreg}>
+                                            Register as an Influencer
+                                        </div>
+                                    </div>
+                                    <div className='btbbx' onClick={handlemodaltale}>
+                                        Register as a Growth Mentor  or Talent Scout
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
                         <div className='col-xl-3 col-lg-3 col-md-6  col-12'>
                             <div className=''>
                                 <div className='phndiv'>
-                                    <img src={femalephone} alt="..." />
+                                    <img src={charubph} alt="..." />
                                 </div>
                             </div>
                         </div>
                     </div>
-                 
+
                 </div>
             </section>
             {/* <section className='charubsuper'>
