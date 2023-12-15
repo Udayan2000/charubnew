@@ -93,7 +93,7 @@ const Creator = ({ closeModal }) => {
         setselectedSkillsName([...selectedSkillsName, { name: skillname, id: id }]);
       }
     } else {
-      toast.error("U Can add only 3 skills");
+      toast.error("You Can add only 3 skills");
     }
   };
   //DeleteSkilss
