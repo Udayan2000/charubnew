@@ -19,10 +19,16 @@ const Creator = ({ closeModal }) => {
   //Skills
   const [skills, setSkills] = useState([]);
   console.log(skills);
+  //Skill ID
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedSkillsName, setselectedSkillsName] = useState([]);
-
-  console.log(selectedSkills, "selectedskilssID", selectedSkillsName, "seletectedSKilss");
+  //
+  console.log(
+    selectedSkills,
+    "selectedskilssID",
+    selectedSkillsName,
+    "seletectedSKilss"
+  );
 
   const [user, setUser] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
@@ -79,16 +85,18 @@ const Creator = ({ closeModal }) => {
         !selectedSkillsName.includes(skillname)
       ) {
         setSelectedSkills([...selectedSkills, id]);
-        setselectedSkillsName([...selectedSkillsName, skillname]);
+        setselectedSkillsName([...selectedSkillsName, {name:skillname,id:id}]);
       }
-
+    } else {
+      toast.error("U Can add only 3 skills");
     }
-    else {
-      toast.error("U Can add only 3 skills")
-    }
-
-
   };
+  //DeleteSkilss
+  const DeleteSkilss = (name,id) => {
+    setSelectedSkills(selectedSkills.filter((x) => x !== id));
+    setselectedSkillsName(selectedSkillsName.filter((x)=>x.name!== name));
+  };
+  //taking values from input
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -98,39 +106,39 @@ const Creator = ({ closeModal }) => {
     let error = {};
     if (user.firstname === "") {
       error.fullName = "first name Name required";
-      await toast.error("first name required");
+      return await toast.error("first name required");
     }
     if (user.lastname === "") {
       error.lastname = "lastname required";
-      await toast.error("lastname required");
+      return await toast.error("lastname required");
     }
     if (user.email === "") {
       error.email = "Email required";
-      await toast.error("email required");
+      return await toast.error("email required");
     }
     if (user.countryCode === "") {
       error.countryCode = "Country required";
-      await toast.error("code required");
+      return await toast.error("code required");
     }
     if (user.phoneNumber === "") {
       error.phoneNumber = "phoneNumber required";
-      await toast.error("phonenumber required");
+      return await toast.error("phonenumber required");
     }
     if (user.password === "") {
       error.password = "password required";
-      await toast.error("password");
+      return await toast.error("password");
     }
     if (user.password !== user.checkPassword) {
       error.checkPassword = "password mismatched";
-      await toast.error("checkpassword");
+      return await toast.error("checkpassword");
     }
     if (selectedSkills.length === 0) {
       error.selectedSkills = "check box";
-      await toast.error("Select at least one skill");
+      return await toast.error("Select at least one skill");
     }
     if (!checked) {
       error.checked = "check box";
-      await toast.error("tick the checkbox");
+      return await toast.error("tick the checkbox");
     }
 
     return error;
@@ -160,7 +168,6 @@ const Creator = ({ closeModal }) => {
       skillID: selectedSkills,
       // "skillID": ["63dcc310811c87e00cd3a676"]
     };
-
 
     //  return console.log("DATAfgdgdfgdgdfd" , data);
 
