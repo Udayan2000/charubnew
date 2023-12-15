@@ -152,7 +152,9 @@ const Influencer = ({ closeModal }) => {
     <>
 
       <div className="influencermodal">
+        <div className="">
         <div className="smartphone">
+          <div className="scrlsmrt">
             <div
               className="influencer_content"
               onClick={(event) => handledefault(event)}
@@ -166,9 +168,9 @@ const Influencer = ({ closeModal }) => {
               <div className="crs" onClick={() => closeModal()}>
                 <i className="fa-solid fa-xmark"></i>
               </div>
-              <div className="">
-                {/* <form> */}
-                {/*full name*/}
+              <div className="scrlwrp">
+
+
                 <div className="txtinpt">
                   <input
                     type="text"
@@ -178,7 +180,7 @@ const Influencer = ({ closeModal }) => {
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
-                {/*last name*/}
+
                 <div className="txtinpt">
                   <input
                     type="text"
@@ -188,7 +190,7 @@ const Influencer = ({ closeModal }) => {
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
-                {/*Email*/}
+
                 <div className="txtinpt">
                   <input
                     type="text"
@@ -199,7 +201,7 @@ const Influencer = ({ closeModal }) => {
                   />
                 </div>
                 <div className="txtinptphninfln">
-                  {/*phone number* type no defined yet */}
+
                   <input
                     type="number"
                     name="phoneNumber"
@@ -224,9 +226,9 @@ const Influencer = ({ closeModal }) => {
                     <div className="listcntry">
                       <ul>
                         <ul>
-                          {/*country code*/}
+
                           {countryDetails?.map((item, index) => {
-                            // console.log(item)
+
                             return (
                               <>
                                 <li className="cntrynmb">
@@ -286,7 +288,7 @@ const Influencer = ({ closeModal }) => {
                   </div>
                 </div>
                 <div className="chcktrm">
-                  {/*Check box*/}
+
                   <input
                     type="checkbox"
                     checked={checked ? true : false}
@@ -297,10 +299,11 @@ const Influencer = ({ closeModal }) => {
                 <div className="sgnbtn" onClick={SignUp}>
                   Sign Up
                 </div>
-                {/* </form> */}
+
               </div>
             </div>
-          
+          </div>
+        </div>
         </div>
       </div>
 

@@ -16,18 +16,21 @@ ul {
   max-width: 90%;
   margin: 0 auto;
 }
-
+body{
+  /* background: linear-gradient(to right, rgba(54,161,251,0.9108018207282913) 6%, rgb(165 171 253 / 83%) 46%, rgba(188,109,251,1) 100%); */
+  background: linear-gradient(90deg, rgba(155,172,252,1) 6%, rgba(178,159,251,1) 26%, rgba(196,139,252,1) 46%, rgba(190,106,253,1) 100%);
+  /* background: linear-gradient(to right, #B78AF8, #3aa7d9); */
+  /* font-family: 'Hedvig Letters Serif', serif; */
+}
 .home_banner {
   width: 100%;
   height: auto;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(190, 106, 253, 1) 0%, rgba(181, 155, 252, 1) 100%);
   padding: 40px 0px;
 }
 
 .chrb {
-  width: 170px;
-  height: 46px;
+  width: 220px;
+  height: 52px;
   margin: 10px 0px;
 }
 
@@ -47,7 +50,7 @@ ul {
 }
 
 .spttxt {
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
   color: #ffffff;
   font-size: 25px;
   font-weight: 500;
@@ -58,29 +61,31 @@ ul {
 
 .alltxtspr {
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  line-height: 40px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 36px;
+  line-height: 45px;
   color: #fff;
   padding: 10px 0px;
+  letter-spacing: 1px;
 }
 
 .alltxtsprthn {
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 22px;
+  line-height: 28px;
   color: #fff;
   padding: 10px 0px;
 }
 
 .alltxtsprbld {
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  line-height: 40px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 34px;
+  line-height: 45px;
   color: #fff;
   padding: 10px 0px;
+  letter-spacing: 1px;
 }
 
 
@@ -88,23 +93,26 @@ ul {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-top: 15px;
+  flex-direction: column;
 }
 
 .btbbx {
   color: #fff;
-  font-size: 14px;
+  font-size: 17px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   padding: 8px;
-  margin: 10px 10px;
+  margin: 8px 5px;
   transition: all 0.4s ease-in-out;
   z-index: 1;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  background-color: #4f81bd;
+  background: linear-gradient(#ed31d6,#f39ce8);
   text-align: center;
   border-radius: 10px;
+  width: 100%;
 }
 
 .btbbx:hover::before {
@@ -116,7 +124,7 @@ ul {
 
 .btbbx::before {
   content: "";
-  border-radius: inherit;
+  /* border-radius: inherit; */
   position: absolute;
   height: 100%;
   width: 100%;
@@ -128,11 +136,12 @@ ul {
   background: #ffffff;
   z-index: -3;
   transition: transform 0.5s ease 0s;
+  overflow: hidden;
 }
 
 .btbbx:hover {
   text-decoration: none;
-  color: #4f81bd;
+  color: #bc6efb;
   background-color: #ffffff;
   border: 2px solid #fff;
 }
@@ -150,13 +159,14 @@ ul {
 
 .phndiv {
   width: 100%;
-  height: 561px;
+  height: 520px;
 }
 
 .phndiv img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  /* object-fit: cover; */
 }
 
 /* .btbbx:nth-child(2){
@@ -213,7 +223,7 @@ ul {
   justify-content: flex-start;
   align-items: center;
   gap: 3%;
-  padding: 5px 0px;
+  padding: 10px 0px 8px 0px;
   cursor: pointer;
 }
 
@@ -236,9 +246,12 @@ ul {
   /* border: 1px solid #000; */
   margin: 5px 0px 15px 0px;
   border: 0px;
-  font-size: 14px;
+  font-size: 12px;
   color: #000;
   font-weight: 600;
+}
+.txtinptphninfln input:focus{
+  outline: 0;
 }
 
 .crttxtinpt input {
@@ -410,7 +423,7 @@ ul {
 
 .icnshw {
   position: absolute;
-  top: 11px;
+  top: 7px;
   right: 11px;
   z-index: 6;
 }
@@ -421,11 +434,11 @@ ul {
 }
 
 .crs {
-  position: absolute;
-  top: 14px;
-  right: 11px;
-  z-index: 99;
-  cursor: pointer;
+    position: absolute;
+    top: 35px;
+    right: 11px;
+    z-index: 99;
+    cursor: pointer;
 }
 
 .crs i {
@@ -491,7 +504,7 @@ ul {
 }
 /* The device with borders */
 .smartphone {
-  position: relative;
+  /* position: relative;
   width: 294px;
   height: 569px;
   margin: 16px auto;
@@ -500,43 +513,61 @@ ul {
   border-bottom-width: 60px;
   border-radius: 15px;
   left: 35%;
-  top: 3%;
+  top: 3%; */
+  border-color: #000;
+  /* background-color: #ffffff; */
+  width: 291px;
+  height: 525px;
+  border-radius: 30px;
+  border: 2px solid #ddd;
+  margin: auto;
+  padding: 23px 7px;
+  position: relative;
+  left: 35%;
+  top: 4%;
 }
-
+.scrlwrp{
+  height: 433px;
+  overflow-y: auto;
+}
+.scrlwrp::-webkit-scrollbar {
+  display: none;
+}
+.btnallbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2%;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrlwrp {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 /* The horizontal line on the top of the device */
 .smartphone:before {
   content: '';
   display: block;
-  width: 60px;
-  height: 5px;
+  width: 66px;
+  height: 14px;
   position: absolute;
-  top: -30px;
+  top: 21px;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #333;
+  background: #000;
   border-radius: 10px;
+  z-index: 99;
 }
 
-/* The circle on the bottom of the device */
-.smartphone:after {
-  content: '';
-  display: block;
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  left: 50%;
-  bottom: -65px;
-  transform: translate(-50%, -50%);
-  background: #333;
-  border-radius: 50%;
-}
-
-/* The screen (or content) of the device */
 .smartphone .influencer_content {
-  width: 280px;
-  height: 472px;
+  width: 285px;
+  /* height: 491px; */
   background: white;
   overflow: auto;
+  border-radius: 29px;
+  padding: 16px 8px;
+  border: 6px solid #000;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .smartphone .influencer_content::-webkit-scrollbar {
@@ -552,7 +583,7 @@ ul {
   .chrb {
     width: 148px;
     height: 39px;
-    margin: 10px auto;
+    /* margin: 10px auto; */
   }
 
   .crttxt {
@@ -575,10 +606,10 @@ ul {
     line-height: 33px;
   }
 
-  .btbbx {
+  /* .btbbx {
     font-size: 12px;
     margin: 10px 5px;
-  }
+  } */
 }
 
 @media(max-width:991px) {
@@ -586,6 +617,10 @@ ul {
     width: 100%;
     height: auto;
   }
+  .smartphone {
+    left: 0%;
+    top: 3%;
+}
 }
 
 @media(max-width:767px) {
@@ -608,6 +643,11 @@ ul {
     width: 100%;
     height: 865px;
   }
+  .phndiv {
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+}
 }
 
 @media(max-width:576px) {
@@ -635,6 +675,7 @@ ul {
   .spttxt {
     padding: 5px 0px;
   }
+
  
 }
 

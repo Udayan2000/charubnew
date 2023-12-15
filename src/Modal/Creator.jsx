@@ -194,190 +194,189 @@ const Creator = ({ closeModal }) => {
     <>
       <div className="influencermodal">
         <div className="smartphone">
-          <div className="influencer_content">
-            <div className="icnacnt">
-              <div className="" onClick={() => closeModal()}>
-                <i className="fa-solid fa-arrow-left-long"></i>
-              </div>
-              <p className="crttxtacnt">Create An Account</p>
-            </div>
-            <div className="crs" onClick={() => closeModal()}>
-              <i className="fa-solid fa-xmark"></i>
-            </div>
-            <div className="">
-              <form>
-                <div className="crttxtinpt">
-                  <input
-                    type="text"
-                    name="firstname"
-                    value={user.firstname}
-                    placeholder="Your First Name"
-                    onChange={(e) => handleChange(e)}
-                  />
+          <div className="wrap">
+            <div className="scrlsmrt">
+              <div className="influencer_content">
+                <div className="icnacnt">
+                  <div className="" onClick={() => closeModal()}>
+                    <i className="fa-solid fa-arrow-left-long"></i>
+                  </div>
+                  <p className="crttxtacnt">Create An Account</p>
                 </div>
-                <div className="crttxtinpt">
-                  <input
-                    type="text"
-                    name="lastname"
-                    value={user.lastname}
-                    placeholder="Your Last Name"
-                    onChange={(e) => handleChange(e)}
-                  />
+                <div className="crs" onClick={() => closeModal()}>
+                  <i className="fa-solid fa-xmark"></i>
                 </div>
-                <div className="crttxtinpt">
-                  <input
-                    type="text"
-                    name="email"
-                    value={user.email}
-                    placeholder="Your Email"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-                <div className="txtinptphn">
-                  <input
-                    type="number"
-                    name="phoneNumber"
-                    value={user.phoneNumber}
-                    placeholder=" Phone Number"
-                    onChange={(e) => handleChange(e)}
-                  />
-                  <div className="flgarwflx">
-                    <div className="numbflgarrow">
-                      {user.countryCode ? (
-                        user.emoji + "+" + user.countryCode
-                      ) : (
-                        <i className="fa-solid fa-flag"></i>
+                <div className="scrlwrp">
+                  <form>
+                    <div className="crttxtinpt">
+                      <input
+                        type="text"
+                        name="firstname"
+                        value={user.firstname}
+                        placeholder="Your First Name"
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
+                    <div className="crttxtinpt">
+                      <input
+                        type="text"
+                        name="lastname"
+                        value={user.lastname}
+                        placeholder="Your Last Name"
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
+                    <div className="crttxtinpt">
+                      <input
+                        type="text"
+                        name="email"
+                        value={user.email}
+                        placeholder="Your Email"
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
+                    <div className="txtinptphn">
+                      <input
+                        type="number"
+                        name="phoneNumber"
+                        value={user.phoneNumber}
+                        placeholder=" Phone Number"
+                        onChange={(e) => handleChange(e)}
+                      />
+                      <div className="flgarwflx">
+                        <div className="numbflgarrow">
+                          {user.countryCode ? (
+                            user.emoji + "+" + user.countryCode
+                          ) : (
+                            <i className="fa-solid fa-flag"></i>
+                          )}
+                        </div>
+                        <div className="arrow" onClick={handleClicklist}>
+                          <i className="fa-solid fa-caret-down"></i>
+                        </div>
+                      </div>
+                      {country && (
+                        <div className="listcntry">
+                          <ul>
+                            {countryDetails?.map((item, index) => {
+                              // console.log(item)
+                              return (
+                                <>
+                                  <li className="cntrynmb">
+                                    <span className="">{item.emoji}</span>
+                                    <span
+                                      className=""
+                                      key={index}
+                                      onClick={() =>
+                                        handleCountryCode(
+                                          item?.phone_code,
+                                          item?.emoji,
+                                          item?._id
+                                        )
+                                      }
+                                    >
+                                      {item?.name}
+                                    </span>
+                                  </li>
+                                </>
+                              );
+                            })}
+                          </ul>
+                        </div>
                       )}
                     </div>
-                    <div className="arrow" onClick={handleClicklist}>
-                      <i className="fa-solid fa-caret-down"></i>
+                    <div className="crttxtinpt">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        placeholder="Password"
+                        value={user.password}
+                        onChange={(e) => handleChange(e)}
+                      />
+                      <div className="shwinpt" onClick={handleTogglePassword}>
+                        {showPassword ? (
+                          <i className="fa-solid fa-eye-slash"></i>
+                        ) : (
+                          <i className="fa-regular fa-eye"></i>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  {country && (
-                    <div className="listcntry">
-                      <ul>
-                        {countryDetails?.map((item, index) => {
-                          // console.log(item)
+                    <div className="crttxtinpt">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="ShowPassword"
+                        name="checkPassword"
+                        value={user.checkPassword}
+                        onChange={handleChange}
+                      />
+                      <div className="shwinpt" onClick={handleToggleCheckPassword}>
+                        {checkshowPassword ? (
+                          <i className="fa-solid fa-eye-slash"></i>
+                        ) : (
+                          <i className="fa-regular fa-eye"></i>
+                        )}
+                      </div>
+                    </div>
+                    <div className="sklinct">
+                      <i className="fa-solid fa-arrow-left-long"></i>
+                      <p className="crttxtacnt">Add Your Skill</p>
+                    </div>
+                    <div className="sklmax">
+                      <p className="skltxt">Maximum 3 skills</p>
+                      <div className="sprtdnccmd">
+                        {skills?.map((item, index) => {
                           return (
                             <>
-                              <li className="cntrynmb">
-                                <span className="">{item.emoji}</span>
-                                <span
-                                  className=""
-                                  key={index}
-                                  onClick={() =>
-                                    handleCountryCode(
-                                      item?.phone_code,
-                                      item?.emoji,
-                                      item?._id
-                                    )
-                                  }
-                                >
-                                  {item?.name}
-                                </span>
-                              </li>
+                              <div
+                                className="btnskl"
+                                key={index}
+                                onClick={() => {
+                                  console.log(item, "userskills");
+                                  userSkilss(item?._id, item?.skillName);
+                                }}
+                              >
+                                {item?.skillName}
+                              </div>
                             </>
                           );
                         })}
-                      </ul>
+                      </div>
                     </div>
-                  )}
-                </div>
-                <div className="crttxtinpt">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    placeholder="Password"
-                    value={user.password}
-                    onChange={(e) => handleChange(e)}
-                  />
-                  <div className="shwinpt" onClick={handleTogglePassword}>
-                    {showPassword ? (
-                      <i className="fa-solid fa-eye-slash"></i>
-                    ) : (
-                      <i className="fa-regular fa-eye"></i>
-                    )}
-                  </div>
-                </div>
-                <div className="crttxtinpt">
-                  <input
-                    type={checkshowPassword ? "text" : "password"}
-                    placeholder="ShowPassword"
-                    name="checkPassword"
-                    value={user.checkPassword}
-                    onChange={handleChange}
-                  />
-                  <div className="shwinpt" onClick={handleToggleCheckPassword}>
-                    {checkshowPassword ? (
-                      <i className="fa-solid fa-eye-slash"></i>
-                    ) : (
-                      <i className="fa-regular fa-eye"></i>
-                    )}
-                  </div>
-                </div>
-                <div className="sklinct">
-                  <i className="fa-solid fa-arrow-left-long"></i>
-                  <p className="crttxtacnt">Add Your Skill</p>
-                </div>
-                <div className="sklmax">
-                  <p className="skltxt">Maximum 3 skills</p>
-                  <div className="sprtdnccmd">
-                    {skills?.map((item, index) => {
-                      return (
-                        <>
-                          <div
-                            className="btnskl"
-                            key={index}
-                            onClick={() => {
-                              console.log(item, "userskills");
-                              userSkilss(item?._id, item?.skillName);
-                             
-                            }}
-                          >
-                            {item?.skillName}
-                          </div>
-                        </>
-                      );
-                    })}
-                  </div>
-                </div>
 
-                <div className="addskl">
-                  <p className="skltxt">View Skil</p>
-                  <div className="sdmotohrflx">
-                    {selectedSkillsName?.map((item, index) => {
-                      return (
-                        <>
-                          <div className="btnsklitm">
-                            {item?.name}
-                            <div className="crsicn">
-                              <i
-                                className="fa-solid fa-xmark"
-                                onClick={() => {
-                                  console.log(item, "selectedSkilss");
-                                  DeleteSkilss(item?.name,item?.id);
-                                }}
-                              ></i>
-                            </div>
-                          </div>
-                        </>
-                      );
-                    })}
-                  </div>
-                </div>
+                    <div className="addskl">
+                      <p className="skltxt">View Skil</p>
+                      <div className="sdmotohrflx">
+                        {selectedSkillsName?.map((item, index) => {
+                          return (
+                            <>
+                              <div className="btnsklitm">
+                                {item}
+                                <div className="crsicn">
+                                  <i className="fa-solid fa-xmark"></i>
+                                </div>
+                              </div>
+                            </>
+                          );
+                        })}
+                      </div>
+                    </div>
 
-                <div className="chcktrm">
-                  <input
-                    type="checkbox"
-                    checked={checked ? true : false}
-                    onClick={handleCheck}
-                  />
-                  <p className="trms">Terms & Condition</p>
+                    <div className="chcktrm">
+                      <input
+                        type="checkbox"
+                        checked={checked ? true : false}
+                        onClick={handleCheck}
+                      />
+                      <p className="trms">Terms & Condition</p>
+                    </div>
+                    <div className="sgnbtn" onClick={SignUp}>
+                      Sign Up
+                    </div>
+                  </form>
+
+               
                 </div>
-                <div className="sgnbtn" onClick={SignUp}>
-                  Sign Up
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
