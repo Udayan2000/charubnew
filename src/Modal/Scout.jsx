@@ -23,6 +23,7 @@ const Scout = ({ closeModal }) => {
   // Validate the form before submission
 
   const [showPassword, setShowPassword] = useState(false);
+  const [checkshowPassword, setCheckShowPassword] = useState(false);
   const [country, setCountry] = useState(false);
   const [countryDetails, setCountryDetails] = useState([]);
 
@@ -57,6 +58,9 @@ const Scout = ({ closeModal }) => {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+  const handleToggleCheckPassword=()=>{
+    setCheckShowPassword(!checkshowPassword);
+  }
   const handleClicklist = () => {
     setCountry(!country);
   };
@@ -136,6 +140,7 @@ const Scout = ({ closeModal }) => {
         toast.success("Register Successfully");
         setUser(initialState);
         closeModal();
+        
       } else {
         return toast.error(res?.message);
       }
@@ -267,14 +272,14 @@ const Scout = ({ closeModal }) => {
               </div>
               <div className="txtinpt">
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type={checkshowPassword ? "text" : "password"}
                   placeholder="ShowPassword"
                   name="checkPassword"
                   value={user.checkPassword}
                   onChange={handleChange}
                 />
-                <div className="icnshw" onClick={handleTogglePassword}>
-                  {showPassword ? (
+                <div className="icnshw" onClick={handleToggleCheckPassword}>
+                  {checkshowPassword ? (
                     <i className="fa-solid fa-eye-slash"></i>
                   ) : (
                     <i className="fa-regular fa-eye"></i>

@@ -32,6 +32,7 @@ const Creator = ({ closeModal }) => {
 
   const [user, setUser] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
+  const [checkshowPassword, setCheckShowPassword] = useState(false);
   const [country, setCountry] = useState(false);
   const [error, setError] = useState();
   const [checked, setChecked] = useState(false);
@@ -39,6 +40,9 @@ const Creator = ({ closeModal }) => {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+  const handleToggleCheckPassword=()=>{
+    setCheckShowPassword(!checkshowPassword);
+  }
   const handleClicklist = () => {
     setCountry(!country);
   };
@@ -297,14 +301,14 @@ const Creator = ({ closeModal }) => {
                 </div>
                 <div className="crttxtinpt">
                   <input
-                    type={showPassword ? "text" : "password"}
+                    type={checkshowPassword ? "text" : "password"}
                     placeholder="ShowPassword"
                     name="checkPassword"
                     value={user.checkPassword}
                     onChange={handleChange}
                   />
-                  <div className="shwinpt" onClick={handleTogglePassword}>
-                    {showPassword ? (
+                  <div className="shwinpt" onClick={handleToggleCheckPassword}>
+                    {checkshowPassword ? (
                       <i className="fa-solid fa-eye-slash"></i>
                     ) : (
                       <i className="fa-regular fa-eye"></i>
