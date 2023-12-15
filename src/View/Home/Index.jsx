@@ -192,7 +192,7 @@ const Index = () => {
                         </div>}
                     </div>
 
-                </div>
+                </div>auto
             </section> */}
 
 
