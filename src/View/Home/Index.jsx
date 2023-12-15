@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import homebanner from "../../Images/homebanner.jpg";
 import charublogo from "../../Images/charublogo.png";
-import kj from "../../Images/kj.jpg"
 import Influencer from '../../Modal/Influencer';
 import Scout from '../../Modal/Scout';
 import Creator from '../../Modal/Creator';
@@ -13,7 +11,8 @@ import play from "../../Images/play.png";
 import read from "../../Images/read.png";
 import charubph from "../../Images/charubph.png";
 import boy from "../../Images/boy.png";
-import charubfemale from "../../Images/charubfemale.png"
+import charubfemale from "../../Images/charubfemale.png";
+import singing from "../../Images/singing.png"
 const Index = () => {
     var settings = {
         // dots: true,
@@ -23,13 +22,13 @@ const Index = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         initialSlide: 1,
-        // fade: true,
-        // autoplay: true,
-        // speed: 4000,
-        // focusOnSelect: false,
-        // cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-        // touchThreshold: 100,
-        // autoplaySpeed: 1000,
+        fade: true,
+        autoplay: true,
+        speed: 2000,
+        focusOnSelect: false,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+        touchThreshold: 100,
+        autoplaySpeed: 3000,
         responsive: [
             {
                 breakpoint: 1024,
@@ -103,16 +102,23 @@ const Index = () => {
                                         <div className='sldallimg' >
                                             <img src={dance} alt="..." />
                                         </div>
-                                        <div className='sldallimgallict' >
+                                        <div className='sldallimg' >
                                             <img src={boy} alt="..." />
                                         </div>
-                                        <div className='sldallimgallspcl' >
+                                     
+                                        <div className='sldallimg' >
                                             <img src={play} alt="..." />
                                         </div>
                                     
-                                        <div className='sldallimgspcl' >
+                                        <div className='sldallimg' >
                                             <img src={read} alt="..." />
                                         </div>
+                                        <div className='sldallimg'>
+                                            <img src={singing} alt="..." />
+                                        </div>
+                                        {/* <div className='sldallimgallictdnone' >
+                                            <img src={boyyy} alt="..." />
+                                        </div> */}
                               
                                 </Slider>
                             </div>
@@ -125,9 +131,9 @@ const Index = () => {
                                 <div className=''>
                                     <p className='alltxtspr'>The All-In-One Creators & Talent SUPERAPP !</p>
                                     <p className='alltxtsprthn'>We are Unleashing Brilliance,
-                                        Connecting, Showcasing, and Elevating Talent and Creativity Globally.
+                                        Connecting, Showcasing  and Elevating Talent and Creativity Globally.
                                     </p>
-                                    <p className='alltxtsprbld'>By Invite only – Join us now by registering below!
+                                    <p className='alltxtsprbld'>By Invite only – Join us now by Registering Below!
                                     </p>
                                 </div>
                                 <div className='btnmainbx'>

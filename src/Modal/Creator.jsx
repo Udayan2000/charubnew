@@ -40,7 +40,7 @@ const Creator = ({ closeModal }) => {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
-  const handleToggleCheckPassword=()=>{
+  const handleToggleCheckPassword = () => {
     setCheckShowPassword(!checkshowPassword);
   }
   const handleClicklist = () => {
@@ -69,6 +69,7 @@ const Creator = ({ closeModal }) => {
       });
     } else {
       console.log(res?.message);
+
     }
   };
 
@@ -89,16 +90,16 @@ const Creator = ({ closeModal }) => {
         !selectedSkillsName.includes(skillname)
       ) {
         setSelectedSkills([...selectedSkills, id]);
-        setselectedSkillsName([...selectedSkillsName, {name:skillname,id:id}]);
+        setselectedSkillsName([...selectedSkillsName, { name: skillname, id: id }]);
       }
     } else {
       toast.error("U Can add only 3 skills");
     }
   };
   //DeleteSkilss
-  const DeleteSkilss = (name,id) => {
+  const DeleteSkilss = (name, id) => {
     setSelectedSkills(selectedSkills.filter((x) => x !== id));
-    setselectedSkillsName(selectedSkillsName.filter((x)=>x.name!== name));
+    setselectedSkillsName(selectedSkillsName.filter((x) => x.name !== name));
   };
   //taking values from input
   const handleChange = (e) => {
@@ -318,7 +319,7 @@ const Creator = ({ closeModal }) => {
                       </div>
                     </div>
                     <div className="sklinct">
-                      <i className="fa-solid fa-arrow-left-long"></i>
+                      {/* <i className="fa-solid fa-arrow-left-long"></i> */}
                       <p className="crttxtacnt">Add Your Skill</p>
                     </div>
                     <div className="sklmax">
@@ -350,8 +351,8 @@ const Creator = ({ closeModal }) => {
                           return (
                             <>
                               <div className="btnsklitm">
-                                {item}
-                                <div className="crsicn">
+                                {item?.name}
+                                <div className="crsicn" onClick={()=>DeleteSkilss(item?.name,item?.id)}>
                                   <i className="fa-solid fa-xmark"></i>
                                 </div>
                               </div>
@@ -370,11 +371,11 @@ const Creator = ({ closeModal }) => {
                       <p className="trms">Terms & Condition</p>
                     </div>
                     <div className="sgnbtn" onClick={SignUp}>
-                      Sign Up
+                      Register
                     </div>
                   </form>
 
-               
+
                 </div>
               </div>
             </div>

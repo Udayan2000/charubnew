@@ -163,7 +163,7 @@ const Scout = ({ closeModal }) => {
               <div className="" onClick={() => closeModal()}>
                 <i className="fa-solid fa-arrow-left-long"></i>
               </div>
-              <p className="crttxtacnt">reate An Account</p>
+              <p className="crttxtacnt">Create An Account</p>
             </div>
             <div className="crs" onClick={() => closeModal()}>
               <i className="fa-solid fa-xmark"></i>
@@ -297,7 +297,7 @@ const Scout = ({ closeModal }) => {
                 <p className="trms">Terms & Condition</p>
               </div>
               <div className="sgnbtn" onClick={SignUp}>
-                Sign Up
+               Register
               </div>
               {/* </form> */}
             </div>

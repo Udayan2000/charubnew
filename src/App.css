@@ -21,6 +21,10 @@ body{
   background: linear-gradient(90deg, rgba(155,172,252,1) 6%, rgba(178,159,251,1) 26%, rgba(196,139,252,1) 46%, rgba(190,106,253,1) 100%);
   /* background: linear-gradient(to right, #B78AF8, #3aa7d9); */
   /* font-family: 'Hedvig Letters Serif', serif; */
+  overflow-y: hidden;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
 }
 .home_banner {
   width: 100%;
@@ -119,20 +123,29 @@ body{
   width: 100%;
   height: 621px;
 }
-.sldallimgspcl img{
+/* .sldallimgspcl img{
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-.sldallimgallspcl{
+} */
+/* .sldallimgallspcl{
   width: 100%;
   height: 564px;
 }
+.sldallimgallict{
+  width: 100%;
+  height: 570px;
+}
+.sldallimgallict img{
+  width: 100%;
+  height: 100%;
+}
+
 .sldallimgallspcl img{
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
+} */
 .btbbx:hover::before {
   left: 0;
   right: auto;
@@ -172,13 +185,13 @@ body{
 
 .sldallimg {
   width: 100%;
-  height: 555px;
+  height: 579px;
 }
 
 .sldallimg img {
   width: 100%;
   height: 100%;
-  /* object-fit: cover; */
+  object-fit: contain;
 }
 
 .phndiv {
@@ -273,6 +286,7 @@ body{
   font-size: 12px;
   color: #000;
   font-weight: 600;
+  border-radius: 8px;
 }
 .txtinptphninfln input:focus{
   outline: 0;
@@ -289,6 +303,10 @@ body{
   font-size: 12px;
   color: #000;
   font-weight: 600;
+  border-radius: 8px;
+}
+.crttxtinpt input:focus{
+  outline: 0;
 }
 
 .crttxtinpt {
@@ -323,6 +341,10 @@ body{
   font-size: 14px;
   color: #000;
   font-weight: 600;
+  border-radius: 8px;
+}
+.txtinptphn input :focus{
+  outline: 0;
 }
 .txtinptphninfln input{
   width: 100%;
@@ -335,6 +357,10 @@ body{
   font-size: 14px;
   color: #000;
   font-weight: 600;
+  border-radius: 8px;
+}
+.txtinptphninfln input:focus{
+outline: 0;
 }
 .txtinptphninfln{
   position: relative;
@@ -458,11 +484,11 @@ body{
 }
 
 .crs {
-    position: absolute;
-    top: 35px;
-    right: 11px;
-    z-index: 99;
-    cursor: pointer;
+  position: absolute;
+  top: 27px;
+  right: 11px;
+  z-index: 99;
+  cursor: pointer;
 }
 .crs i {
   font-size: 15px;
@@ -578,8 +604,11 @@ body{
   background: white;
   overflow: auto;
   border-radius: 29px;
-  padding: 16px 8px;
+  padding: 16px 12px;
   border: 6px solid #000;
+}
+.slick-track{
+  height:100vh !important;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .smartphone .influencer_content::-webkit-scrollbar {
@@ -595,6 +624,13 @@ body{
   .smartphone {
     top: 2%;
 }
+body{
+  overflow-y: scroll;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
 }
 @media(max-width:1199px) {
   .chrb {
@@ -656,21 +692,45 @@ body{
     line-height: 30px;
   }
 
-  .sldallimg {
+  /* .sldallimg {
     width: 100%;
     height: 865px;
-  }
+  } */
   .phndiv {
     width: 100%;
-    height: auto;
+    height: 600px;
     margin-top: 25px;
 }
-.sldallimgallspcl {
+.phndiv img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+}
+/* .sldallimgallspcl {
   width: 100%;
   height: 642px;
-}
-}
+} */
+/* .sldallimgallictdnone{
+  display: block;
+  width: 100%;
+  height: 642px;
+} */
 
+/* .sldallimgspcl {
+  width: 100%;
+  height: 660px;
+} */
+.sldallimg {
+  width: 100%;
+  height: 518px;
+}
+.sldallimg img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+}
 @media(max-width:576px) {
   .alltxtspr {
     font-size: 20px;
@@ -688,7 +748,7 @@ body{
     padding: 5px 0px;
   }
   .chrb {
-    margin: 5px auto;
+    margin: 15px auto;
   }
   .crttxt {
     padding: 5px 0px
@@ -702,7 +762,13 @@ body{
 
 @media(max-width:480px) {
   .btbbx {
-    font-size: 9px;
+    font-size: 12px;
+    margin: 10px 5px;
+  }
+}
+@media(max-width:420px) {
+  .btbbx {
+    font-size: 10px;
     margin: 10px 5px;
   }
 }

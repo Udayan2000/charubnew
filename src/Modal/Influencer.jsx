@@ -297,7 +297,7 @@ const Influencer = ({ closeModal }) => {
                   <p className="trms">Terms & Condition</p>
                 </div>
                 <div className="sgnbtn" onClick={SignUp}>
-                  Sign Up
+                Register
                 </div>
 
               </div>
