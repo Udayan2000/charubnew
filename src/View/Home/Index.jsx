@@ -10,9 +10,9 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import dance from "../../Images/dance.png";
 import play from "../../Images/play.png";
-import bg2 from "../../Images/bg2.png";
 import read from "../../Images/read.png";
 import charubph from "../../Images/charubph.png";
+import boy from "../../Images/boy.png";
 import charubfemale from "../../Images/charubfemale.png"
 const Index = () => {
     var settings = {
@@ -23,13 +23,13 @@ const Index = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         initialSlide: 1,
-        fade: true,
-        autoplay: true,
-        speed: 4000,
-        focusOnSelect: false,
-        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-        touchThreshold: 100,
-        autoplaySpeed: 1000,
+        // fade: true,
+        // autoplay: true,
+        // speed: 4000,
+        // focusOnSelect: false,
+        // cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+        // touchThreshold: 100,
+        // autoplaySpeed: 1000,
         responsive: [
             {
                 breakpoint: 1024,
@@ -37,11 +37,11 @@ const Index = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-                    fade: true,
-                    autoplay: true,
-                    speed: 3000,
-                    cssEase: "ease-in",
-                    autoplaySpeed: 2000,
+                    // fade: true,
+                    // autoplay: true,
+                    // speed: 3000,
+                    // cssEase: "ease-in",
+                    // autoplaySpeed: 2000,
                     // dots: true
                 }
             },
@@ -51,11 +51,11 @@ const Index = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     initialSlide: 1,
-                    fade: true,
-                    autoplay: true,
-                    speed: 3000,
-                    cssEase: "ease-in",
-                    autoplaySpeed: 2000,
+                    // fade: true,
+                    // autoplay: true,
+                    // speed: 3000,
+                    // cssEase: "ease-in",
+                    // autoplaySpeed: 2000,
                 }
             },
             {
@@ -63,31 +63,16 @@ const Index = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    fade: true,
-                    autoplay: true,
-                    speed: 3000,
-                    cssEase: "ease-in",
-                    autoplaySpeed: 2000,
+                    // fade: true,
+                    // autoplay: true,
+                    // speed: 3000,
+                    // cssEase: "ease-in",
+                    // autoplaySpeed: 2000,
                 }
             }
         ]
     };
-    const slideimg = [
-        {
-            img: charubfemale,
-        },
-        {
-            img: dance
-
-        },
-        {
-            img: play,
-        },
-        {
-            img: read,
-        },
-
-    ]
+   
 
     const [modala, setModala] = useState(false);
     const [modalb, setModalb] = useState(false);
@@ -112,15 +97,23 @@ const Index = () => {
                         <div className='col-xl-4 col-lg-4 col-md-6  col-12'>
                             <div className=''>
                                 <Slider {...settings}>
-                                    {slideimg.map((item, index) => {
-                                        return (
-                                            <div>
-                                                <div className='sldallimg' key={index}>
-                                                    <img src={item.img} alt="..." />
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
+                                        <div className='sldallimg' >
+                                            <img src={charubfemale} alt="..." />
+                                        </div>
+                                        <div className='sldallimg' >
+                                            <img src={dance} alt="..." />
+                                        </div>
+                                        <div className='sldallimgallict' >
+                                            <img src={boy} alt="..." />
+                                        </div>
+                                        <div className='sldallimgallspcl' >
+                                            <img src={play} alt="..." />
+                                        </div>
+                                    
+                                        <div className='sldallimgspcl' >
+                                            <img src={read} alt="..." />
+                                        </div>
+                              
                                 </Slider>
                             </div>
                         </div>

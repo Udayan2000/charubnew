@@ -101,7 +101,7 @@ body{
   color: #fff;
   font-size: 17px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   padding: 8px;
   margin: 8px 5px;
   transition: all 0.4s ease-in-out;
@@ -109,12 +109,30 @@ body{
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  background: linear-gradient(#ed31d6,#f39ce8);
+  background: linear-gradient(#f319da,#f39ce8); 
+  /* background-color: #fff; */
   text-align: center;
   border-radius: 10px;
   width: 100%;
 }
-
+.sldallimgspcl{
+  width: 100%;
+  height: 621px;
+}
+.sldallimgspcl img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.sldallimgallspcl{
+  width: 100%;
+  height: 564px;
+}
+.sldallimgallspcl img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .btbbx:hover::before {
   left: 0;
   right: auto;
@@ -133,7 +151,9 @@ body{
   right: 0;
   transform: scaleX(0);
   transform-origin: right;
-  background: #ffffff;
+  background: #ffff;
+  /* background-color: rgb(247 31 138 / 65%); */
+  background-color: #fff;
   z-index: -3;
   transition: transform 0.5s ease 0s;
   overflow: hidden;
@@ -141,9 +161,13 @@ body{
 
 .btbbx:hover {
   text-decoration: none;
-  color: #bc6efb;
-  background-color: #ffffff;
-  border: 2px solid #fff;
+  color: rgb(247 31 138 / 65%);
+  /* background-color: #bc6efb; */
+  /* background-color: rgb(254 104 179); */
+  /* background-color: rgb(241 0 120); */
+  background-color:#fff ;
+  font-weight: 600;
+  /* border: 2px solid #fff; */
 }
 
 .sldallimg {
@@ -440,7 +464,6 @@ body{
     z-index: 99;
     cursor: pointer;
 }
-
 .crs i {
   font-size: 15px;
 }
@@ -504,20 +527,9 @@ body{
 }
 /* The device with borders */
 .smartphone {
-  /* position: relative;
-  width: 294px;
-  height: 569px;
-  margin: 16px auto;
-  border: 16px black solid;
-  border-top-width: 60px;
-  border-bottom-width: 60px;
-  border-radius: 15px;
-  left: 35%;
-  top: 3%; */
   border-color: #000;
-  /* background-color: #ffffff; */
   width: 291px;
-  height: 525px;
+  height: 532px;
   border-radius: 30px;
   border: 2px solid #ddd;
   margin: auto;
@@ -527,7 +539,7 @@ body{
   top: 4%;
 }
 .scrlwrp{
-  height: 433px;
+  height: 441px;
   overflow-y: auto;
 }
 .scrlwrp::-webkit-scrollbar {
@@ -578,6 +590,11 @@ body{
 .smartphone .influencer_content {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+@media(max-width:1326px){
+  .smartphone {
+    top: 2%;
+}
 }
 @media(max-width:1199px) {
   .chrb {
@@ -647,6 +664,10 @@ body{
     width: 100%;
     height: auto;
     margin-top: 25px;
+}
+.sldallimgallspcl {
+  width: 100%;
+  height: 642px;
 }
 }
 

@@ -148,7 +148,7 @@ const Influencer = ({ closeModal }) => {
     <>
 
       <div className="influencermodal">
-        <div className="">
+       
         <div className="smartphone">
           <div className="scrlsmrt">
             <div
@@ -301,7 +301,7 @@ const Influencer = ({ closeModal }) => {
           </div>
         </div>
         </div>
-      </div>
+   
 
 
     </>
