@@ -11,7 +11,7 @@ import play1 from "../../Images/play1.png";
 import female_reading_book from "../../Images/female_reading_book.png";
 import charubph from "../../Images/charubph.png";
 import boy1 from "../../Images/boy1.png";
-import musicc1 from "../../Images/musicc1.png";
+import music1 from "../../Images/music1.png";
 import singing1 from "../../Images/singing.png"
 const Index = () => {
     var settings = {
@@ -22,13 +22,13 @@ const Index = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         initialSlide: 1,
-        // fade: true,
-        // autoplay: true,
-        // speed: 2000,
-        // focusOnSelect: false,
-        // cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-        // touchThreshold: 100,
-        // autoplaySpeed: 3000,
+        fade: true,
+        autoplay: true,
+        speed: 2000,
+        focusOnSelect: false,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+        touchThreshold: 100,
+        autoplaySpeed: 2000,
         responsive: [
             {
                 breakpoint: 1024,
@@ -75,9 +75,10 @@ const Index = () => {
 
     const [modala, setModala] = useState(false);
     const [modalb, setModalb] = useState(false);
-    const [modalc, setModalc] = useState(false)
+    const [modalc, setModalc] = useState(false);
+
     const handlemodalreg = () => {
-        setModala(true)
+        setModala(true);
     }
     const handlemodaltale = () => {
         setModalb(true)
@@ -85,6 +86,19 @@ const Index = () => {
     const handlemodalcre = () => {
         setModalc(true)
     }
+
+    if(modala){
+        document.body.classList.add('overflow')
+    }
+    else if(modalb){
+        document.body.classList.add('overflow')
+    }
+    else if(modalc){
+        document.body.classList.add('overflow')
+    }
+    else{
+        document.body.classList.remove('overflow')
+    };
     return (
         <>
             <section className='home_banner'>
@@ -92,22 +106,24 @@ const Index = () => {
                     <img src={homebanner} className="" alt="..." />
                 </div> */}
                 <div className='cust_container'>
-                    <div className='row'>
+                    <div className='row' style={{alignItems:"center"}}>
                         <div className='col-xl-4 col-lg-4 col-md-6  col-12'>
                             <div className=''>
                                 <Slider {...settings}>
                                         <div className='sldallimg' >
-                                            <img src={musicc1} alt="..." />
+                                        <img src={dance1} alt="..." />
                                         </div>
                                         <div className='sldallimg' >
-                                            <img src={dance1} alt="..." />
+                                        <img src={music1} alt="..." />
+                                          
                                         </div>
                                         <div className='sldallimg' >
-                                            <img src={boy1} alt="..." />
+                                        <img src={play1} alt="..." />
+                                          
                                         </div>
                                      
                                         <div className='sldallimg' >
-                                            <img src={play1} alt="..." />
+                                        <img src={boy1} alt="..." />
                                         </div>
                                     
                                         <div className='sldallimg' >
