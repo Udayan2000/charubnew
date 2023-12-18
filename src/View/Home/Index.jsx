@@ -6,13 +6,13 @@ import Creator from '../../Modal/Creator';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import dance from "../../Images/dance.png";
-import play from "../../Images/play.png";
-import read from "../../Images/read.png";
+import dance1 from "../../Images/dance1.png";
+import play1 from "../../Images/play1.png";
+import female_reading_book from "../../Images/female_reading_book.png";
 import charubph from "../../Images/charubph.png";
-import boy from "../../Images/boy.png";
-import charubfemale from "../../Images/charubfemale.png";
-import singing from "../../Images/singing.png"
+import boy1 from "../../Images/boy1.png";
+import musicc1 from "../../Images/musicc1.png";
+import singing1 from "../../Images/singing.png"
 const Index = () => {
     var settings = {
         // dots: true,
@@ -22,13 +22,13 @@ const Index = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         initialSlide: 1,
-        fade: true,
-        autoplay: true,
-        speed: 2000,
-        focusOnSelect: false,
-        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-        touchThreshold: 100,
-        autoplaySpeed: 3000,
+        // fade: true,
+        // autoplay: true,
+        // speed: 2000,
+        // focusOnSelect: false,
+        // cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+        // touchThreshold: 100,
+        // autoplaySpeed: 3000,
         responsive: [
             {
                 breakpoint: 1024,
@@ -36,11 +36,11 @@ const Index = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-                    // fade: true,
-                    // autoplay: true,
-                    // speed: 3000,
-                    // cssEase: "ease-in",
-                    // autoplaySpeed: 2000,
+                    fade: true,
+                    autoplay: true,
+                    speed: 3000,
+                    cssEase: "ease-in",
+                    autoplaySpeed: 2000,
                     // dots: true
                 }
             },
@@ -50,11 +50,11 @@ const Index = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     initialSlide: 1,
-                    // fade: true,
-                    // autoplay: true,
-                    // speed: 3000,
-                    // cssEase: "ease-in",
-                    // autoplaySpeed: 2000,
+                    fade: true,
+                    autoplay: true,
+                    speed: 3000,
+                    cssEase: "ease-in",
+                    autoplaySpeed: 2000,
                 }
             },
             {
@@ -62,11 +62,11 @@ const Index = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    // fade: true,
-                    // autoplay: true,
-                    // speed: 3000,
-                    // cssEase: "ease-in",
-                    // autoplaySpeed: 2000,
+                    fade: true,
+                    autoplay: true,
+                    speed: 3000,
+                    cssEase: "ease-in",
+                    autoplaySpeed: 2000,
                 }
             }
         ]
@@ -97,29 +97,26 @@ const Index = () => {
                             <div className=''>
                                 <Slider {...settings}>
                                         <div className='sldallimg' >
-                                            <img src={charubfemale} alt="..." />
+                                            <img src={musicc1} alt="..." />
                                         </div>
                                         <div className='sldallimg' >
-                                            <img src={dance} alt="..." />
+                                            <img src={dance1} alt="..." />
                                         </div>
                                         <div className='sldallimg' >
-                                            <img src={boy} alt="..." />
+                                            <img src={boy1} alt="..." />
                                         </div>
                                      
                                         <div className='sldallimg' >
-                                            <img src={play} alt="..." />
+                                            <img src={play1} alt="..." />
                                         </div>
                                     
                                         <div className='sldallimg' >
-                                            <img src={read} alt="..." />
+                                            <img src={female_reading_book} alt="..." />
                                         </div>
                                         <div className='sldallimg'>
-                                            <img src={singing} alt="..." />
+                                            <img src={singing1} alt="..." />
                                         </div>
-                                        {/* <div className='sldallimgallictdnone' >
-                                            <img src={boyyy} alt="..." />
-                                        </div> */}
-                              
+                            
                                 </Slider>
                             </div>
                         </div>
