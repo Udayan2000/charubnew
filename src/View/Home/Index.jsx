@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
-import homebanner from "../../Images/homebanner.jpg";
 import charublogo from "../../Images/charublogo.png";
-import kj from "../../Images/kj.jpg"
 import Influencer from '../../Modal/Influencer';
 import Scout from '../../Modal/Scout';
 import Creator from '../../Modal/Creator';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import dance from "../../Images/dance.png";
-import play from "../../Images/play.png";
-import bg2 from "../../Images/bg2.png";
-import read from "../../Images/read.png";
+import dance1 from "../../Images/dance1.png";
+import play1 from "../../Images/play1.png";
+import female_reading_book from "../../Images/female_reading_book.png";
 import charubph from "../../Images/charubph.png";
-import charubfemale from "../../Images/charubfemale.png"
+import boy1 from "../../Images/boy1.png";
+import music1 from "../../Images/music1.png";
+import singing1 from "../../Images/singing.png"
 const Index = () => {
     var settings = {
         // dots: true,
@@ -25,11 +24,11 @@ const Index = () => {
         initialSlide: 1,
         fade: true,
         autoplay: true,
-        speed: 4000,
+        speed: 2000,
         focusOnSelect: false,
         cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
         touchThreshold: 100,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 2000,
         responsive: [
             {
                 breakpoint: 1024,
@@ -72,28 +71,14 @@ const Index = () => {
             }
         ]
     };
-    const slideimg = [
-        {
-            img: charubfemale,
-        },
-        {
-            img: dance
-
-        },
-        {
-            img: play,
-        },
-        {
-            img: read,
-        },
-
-    ]
+   
 
     const [modala, setModala] = useState(false);
     const [modalb, setModalb] = useState(false);
-    const [modalc, setModalc] = useState(false)
+    const [modalc, setModalc] = useState(false);
+
     const handlemodalreg = () => {
-        setModala(true)
+        setModala(true);
     }
     const handlemodaltale = () => {
         setModalb(true)
@@ -101,6 +86,19 @@ const Index = () => {
     const handlemodalcre = () => {
         setModalc(true)
     }
+
+    if(modala){
+        document.body.classList.add('overflow')
+    }
+    else if(modalb){
+        document.body.classList.add('overflow')
+    }
+    else if(modalc){
+        document.body.classList.add('overflow')
+    }
+    else{
+        document.body.classList.remove('overflow')
+    };
     return (
         <>
             <section className='home_banner'>
@@ -108,19 +106,33 @@ const Index = () => {
                     <img src={homebanner} className="" alt="..." />
                 </div> */}
                 <div className='cust_container'>
-                    <div className='row'>
+                    <div className='row' style={{alignItems:"center"}}>
                         <div className='col-xl-4 col-lg-4 col-md-6  col-12'>
                             <div className=''>
                                 <Slider {...settings}>
-                                    {slideimg.map((item, index) => {
-                                        return (
-                                            <div>
-                                                <div className='sldallimg' key={index}>
-                                                    <img src={item.img} alt="..." />
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
+                                        <div className='sldallimg' >
+                                        <img src={dance1} alt="..." />
+                                        </div>
+                                        <div className='sldallimg' >
+                                        <img src={music1} alt="..." />
+                                          
+                                        </div>
+                                        <div className='sldallimg' >
+                                        <img src={play1} alt="..." />
+                                          
+                                        </div>
+                                     
+                                        <div className='sldallimg' >
+                                        <img src={boy1} alt="..." />
+                                        </div>
+                                    
+                                        <div className='sldallimg' >
+                                            <img src={female_reading_book} alt="..." />
+                                        </div>
+                                        <div className='sldallimg'>
+                                            <img src={singing1} alt="..." />
+                                        </div>
+                            
                                 </Slider>
                             </div>
                         </div>
@@ -132,9 +144,9 @@ const Index = () => {
                                 <div className=''>
                                     <p className='alltxtspr'>The All-In-One Creators & Talent SUPERAPP !</p>
                                     <p className='alltxtsprthn'>We are Unleashing Brilliance,
-                                        Connecting, Showcasing, and Elevating Talent and Creativity Globally.
+                                        Connecting, Showcasing  and Elevating Talent and Creativity Globally.
                                     </p>
-                                    <p className='alltxtsprbld'>By Invite only – Join us now by registering below!
+                                    <p className='alltxtsprbld'>By Invite only – Join us now by Registering Below!
                                     </p>
                                 </div>
                                 <div className='btnmainbx'>

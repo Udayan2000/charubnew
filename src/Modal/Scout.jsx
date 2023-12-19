@@ -73,11 +73,11 @@ const Scout = ({ closeModal }) => {
     let error = {};
     if (user.firstname === "") {
       error.fullName = "first name Name required";
-      return toast.error("first name required");
+      return toast.error("First Name Required");
     }
     if (user.lastname === "") {
       error.lastname = "lastname required";
-      return toast.error("lastname required");
+      return toast.error("Last Name Required");
     }
     if (user.email === "") {
       error.email = "Email required";
@@ -85,23 +85,23 @@ const Scout = ({ closeModal }) => {
     }
     if (user.countryCode === "") {
       error.countryCode = "Country required";
-      return toast.error("code required");
+      return toast.error("Country code required");
     }
     if (user.phoneNumber === "") {
       error.phoneNumber = "phoneNumber required";
-      return toast.error("phonenumber required");
+      return toast.error("Phone Number Required");
     }
     if (user.password === "") {
       error.password = "password required";
-      return toast.error("password");
+      return toast.error("Password Required");
     }
     if (user.password !== user.checkPassword) {
       error.checkPassword = "password mismatched";
-      return toast.error("checkpassword");
+      return toast.error("Passwors mismatched");
     }
     if (!checked) {
       error.checked = "check box";
-      return toast.error("tick the checkbox");
+      return toast.error("Please Check Terms & Condition");
     }
     return error;
   };
@@ -163,7 +163,7 @@ const Scout = ({ closeModal }) => {
               <div className="" onClick={() => closeModal()}>
                 <i className="fa-solid fa-arrow-left-long"></i>
               </div>
-              <p className="crttxtacnt">reate An Account</p>
+              <p className="crttxtacnt">Create An Account</p>
             </div>
             <div className="crs" onClick={() => closeModal()}>
               <i className="fa-solid fa-xmark"></i>
@@ -274,7 +274,7 @@ const Scout = ({ closeModal }) => {
               <div className="txtinpt">
                 <input
                   type={checkshowPassword ? "text" : "password"}
-                  placeholder="ShowPassword"
+                  placeholder="Show Password"
                   name="checkPassword"
                   value={user.checkPassword}
                   onChange={handleChange}
@@ -297,7 +297,7 @@ const Scout = ({ closeModal }) => {
                 <p className="trms">Terms & Condition</p>
               </div>
               <div className="sgnbtn" onClick={SignUp}>
-                Sign Up
+               Register
               </div>
               {/* </form> */}
             </div>
