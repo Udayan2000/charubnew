@@ -40,7 +40,7 @@ const Creator = ({ closeModal }) => {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
-  const handleToggleCheckPassword = () => {
+  const handleToggleCheckPassword=()=>{
     setCheckShowPassword(!checkshowPassword);
   }
   const handleClicklist = () => {
@@ -304,8 +304,8 @@ const Creator = ({ closeModal }) => {
                     </div>
                     <div className="crttxtinpt">
                       <input
-                        type={showPassword ? "text" : "password"}
-                        placeholder="ShowPassword"
+                        type={checkshowPassword ? "text" : "password"}
+                        placeholder="Confirm Password"
                         name="checkPassword"
                         value={user.checkPassword}
                         onChange={handleChange}
@@ -345,7 +345,7 @@ const Creator = ({ closeModal }) => {
                     </div>
 
                     <div className="addskl">
-                      <p className="skltxt">View Skil</p>
+                      <p className="skltxt"> Selected Skill</p>
                       <div className="sdmotohrflx">
                         {selectedSkillsName?.map((item, index) => {
                           return (

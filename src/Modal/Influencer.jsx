@@ -274,7 +274,7 @@ const Influencer = ({ closeModal }) => {
                 <div className="txtinpt">
                   <input
                     type={checkshowPassword ? "text" : "password"}
-                    placeholder="ShowPassword"
+                    placeholder="Confirm Password"
                     name="checkPassword"
                     value={user.checkPassword}
                     onChange={handleChange}

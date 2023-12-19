@@ -87,18 +87,18 @@ const Index = () => {
         setModalc(true)
     }
 
-    if(modala){
-        document.body.classList.add('overflow')
-    }
-    else if(modalb){
-        document.body.classList.add('overflow')
-    }
-    else if(modalc){
-        document.body.classList.add('overflow')
-    }
-    else{
-        document.body.classList.remove('overflow')
-    };
+    // if(modala){
+    //     document.body.classList.add('overflow')
+    // }
+    // else if(modalb){
+    //     document.body.classList.add('overflow')
+    // }
+    // else if(modalc){
+    //     document.body.classList.add('overflow')
+    // }
+    // else{
+    //     document.body.classList.remove('overflow')
+    // };
     return (
         <>
             <section className='home_banner'>
