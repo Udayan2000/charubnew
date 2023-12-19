@@ -22,7 +22,7 @@ const Creator = ({ closeModal }) => {
   //Skill ID
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedSkillsName, setselectedSkillsName] = useState([]);
-  //
+  console.log("selectedSkillsName",selectedSkillsName)
   console.log(
     selectedSkills,
     "selectedskilssID",
@@ -111,31 +111,31 @@ const Creator = ({ closeModal }) => {
     let error = {};
     if (user.firstname === "") {
       error.fullName = "first name Name required";
-      return await toast.error("first name required");
+      return await toast.error("First Name Required");
     }
     if (user.lastname === "") {
       error.lastname = "lastname required";
-      return await toast.error("lastname required");
+      return await toast.error("Last Name Required");
     }
     if (user.email === "") {
       error.email = "Email required";
-      return await toast.error("email required");
+      return await toast.error("Email Required");
     }
     if (user.countryCode === "") {
-      error.countryCode = "Country required";
-      return await toast.error("code required");
+      error.countryCode = "Country Required";
+      return await toast.error("Code Required");
     }
     if (user.phoneNumber === "") {
-      error.phoneNumber = "phoneNumber required";
-      return await toast.error("phonenumber required");
+      error.phoneNumber = "Phone Number Required";
+      return await toast.error("Phone Number Required");
     }
     if (user.password === "") {
       error.password = "password required";
-      return await toast.error("password");
+      return await toast.error("Password Required");
     }
     if (user.password !== user.checkPassword) {
       error.checkPassword = "password mismatched";
-      return await toast.error("checkpassword");
+      return await toast.error("Password Mismatched");
     }
     if (selectedSkills.length === 0) {
       error.selectedSkills = "check box";
@@ -143,7 +143,7 @@ const Creator = ({ closeModal }) => {
     }
     if (!checked) {
       error.checked = "check box";
-      return await toast.error("tick the checkbox");
+      return await toast.error("Please Check Terms & Condition");
     }
 
     return error;
@@ -348,11 +348,12 @@ const Creator = ({ closeModal }) => {
                       <p className="skltxt"> Selected Skill</p>
                       <div className="sdmotohrflx">
                         {selectedSkillsName?.map((item, index) => {
+                          console.log("item", item)
                           return (
                             <>
                               <div className="btnsklitm">
                                 {item?.name}
-                                <div className="crsicn" onClick={()=>DeleteSkilss(item?.name,item?.id)}>
+                                <div className="crsicn" onClick={()=>DeleteSkilss(item?.name, item?.id)}>
                                   <i className="fa-solid fa-xmark"></i>
                                 </div>
                               </div>

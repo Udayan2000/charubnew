@@ -11,10 +11,12 @@ ul {
   padding: 0px;
 }
 
-.overflow {
+/* .overflow {
+  overflow-y: hidden;
+} */
+.hidden {
   overflow-y: hidden;
 }
-
 .overhidden {
   overflow-y: auto;
 }

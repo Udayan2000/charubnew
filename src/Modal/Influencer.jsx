@@ -73,35 +73,35 @@ const Influencer = ({ closeModal }) => {
     let error = {};
     if (user.firstname === "") {
       error.fullName = "first name Name required";
-      return toast.error("first name required");
+      return toast.error("First Name Required");
     }
     if (user.lastname === "") {
       error.lastname = "lastname required";
-      return toast.error("lastname required");
+      return toast.error("Last Name Required");
     }
     if (user.email === "") {
       error.email = "Email required";
-      return toast.error("email required");
+      return toast.error("Email Required");
     }
     if (user.countryCode === "") {
       error.countryCode = "Country required";
-      return toast.error("code required");
+      return toast.error("Country Code Required");
     }
     if (user.phoneNumber === "") {
-      error.phoneNumber = "phoneNumber required";
-      return toast.error("phonenumber required");
+      error.phoneNumber = "Phone Number required";
+      return toast.error("Phone Number Required");
     }
     if (user.password === "") {
-      error.password = "password required";
-      return toast.error("password");
+      error.password = "Password Required";
+      return toast.error("Password Required");
     }
     if (user.password !== user.checkPassword) {
-      error.checkPassword = "password mismatched";
-      return toast.error("checkpassword");
+      error.checkPassword = "Password mismatched";
+      return toast.error("Password mismatched");
     }
     if (!checked) {
       error.checked = "check box";
-      return toast.error("tick the checkbox");
+      return toast.error("Please Check Terms & Condition");
     }
     return error;
   };

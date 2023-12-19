@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import charublogo from "../../Images/charublogo.png";
 import Influencer from '../../Modal/Influencer';
 import Scout from '../../Modal/Scout';
@@ -77,14 +77,26 @@ const Index = () => {
     const [modalb, setModalb] = useState(false);
     const [modalc, setModalc] = useState(false);
 
-    const handlemodalreg = () => {
-        setModala(true);
-    }
+  
     const handlemodaltale = () => {
-        setModalb(true)
+        setModalb(true);
     }
     const handlemodalcre = () => {
-        setModalc(true)
+        setModalc(true);
+    }
+    useEffect(() => {
+        if (modala) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'auto';
+        }
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, [modala]);
+      
+      const handlemodalreg = () => {
+        setModala(true);
     }
 
     // if(modala){
