@@ -347,11 +347,12 @@ const Creator = ({ closeModal }) => {
                       <p className="skltxt">View Skil</p>
                       <div className="sdmotohrflx">
                         {selectedSkillsName?.map((item, index) => {
+                          console.log("item", item)
                           return (
                             <>
                               <div className="btnsklitm">
-                                {item}
-                                <div className="crsicn">
+                                {item.name}
+                                <div className="crsicn" onClick={()=>DeleteSkilss(item?.name,item?.id)}>
                                   <i className="fa-solid fa-xmark"></i>
                                 </div>
                               </div>
