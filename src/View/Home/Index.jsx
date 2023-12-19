@@ -71,33 +71,42 @@ const Index = () => {
             }
         ]
     };
-   
+
 
     const [modala, setModala] = useState(false);
     const [modalb, setModalb] = useState(false);
     const [modalc, setModalc] = useState(false);
 
-  
     const handlemodaltale = () => {
         setModalb(true);
     }
     const handlemodalcre = () => {
         setModalc(true);
     }
-    useEffect(() => {
-        if (modala) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = 'auto';
-        }
-        return () => {
-          document.body.style.overflow = 'auto';
-        };
-      }, [modala]);
-      
-      const handlemodalreg = () => {
+    const handlemodalreg = () => {
         setModala(true);
     }
+    useEffect(() => {
+        if (modala) {
+            document.body.style.overflow = 'hidden';
+        } 
+        else if(modalb) {
+
+            document.body.style.overflow = 'hidden';
+        }
+        else if(modalc){
+            document.body.style.overflow = 'hidden';   
+        }
+        else{
+            document.body.style.overflow = 'auto';  
+        }
+        return () => {
+
+            document.body.style.overflow = 'auto';
+        };
+    }, [modala,modalb,modalc]);
+
+ 
 
     // if(modala){
     //     document.body.classList.add('overflow')
@@ -118,33 +127,33 @@ const Index = () => {
                     <img src={homebanner} className="" alt="..." />
                 </div> */}
                 <div className='cust_container'>
-                    <div className='row' style={{alignItems:"center"}}>
+                    <div className='row' style={{ alignItems: "center" }}>
                         <div className='col-xl-4 col-lg-4 col-md-6  col-12'>
                             <div className=''>
                                 <Slider {...settings}>
-                                        <div className='sldallimg' >
+                                    <div className='sldallimg' >
                                         <img src={dance1} alt="..." />
-                                        </div>
-                                        <div className='sldallimg' >
+                                    </div>
+                                    <div className='sldallimg' >
                                         <img src={music1} alt="..." />
-                                          
-                                        </div>
-                                        <div className='sldallimg' >
+
+                                    </div>
+                                    <div className='sldallimg' >
                                         <img src={play1} alt="..." />
-                                          
-                                        </div>
-                                     
-                                        <div className='sldallimg' >
+
+                                    </div>
+
+                                    <div className='sldallimg' >
                                         <img src={boy1} alt="..." />
-                                        </div>
-                                    
-                                        <div className='sldallimg' >
-                                            <img src={female_reading_book} alt="..." />
-                                        </div>
-                                        <div className='sldallimg'>
-                                            <img src={singing1} alt="..." />
-                                        </div>
-                            
+                                    </div>
+
+                                    <div className='sldallimg' >
+                                        <img src={female_reading_book} alt="..." />
+                                    </div>
+                                    <div className='sldallimg'>
+                                        <img src={singing1} alt="..." />
+                                    </div>
+
                                 </Slider>
                             </div>
                         </div>

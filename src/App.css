@@ -11,15 +11,15 @@ ul {
   padding: 0px;
 }
 
-/* .overflow {
+.overflow {
   overflow-y: hidden;
-} */
-.hidden {
+}
+/* .hidden {
   overflow-y: hidden;
 }
 .overhidden {
   overflow-y: auto;
-}
+} */
 
 .cust_container {
   width: 100%;
